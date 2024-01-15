@@ -1,0 +1,8 @@
+@EndUserText.label: 'eInvoice Parameters'
+define service Zetr_ddl_d_invoice_parameters {
+  expose zetr_ddl_p_invoice_parameters as eInvoiceParameters;
+  expose zetr_ddl_p_invoice_custom     as CustomParameters;
+  expose zetr_ddl_p_invoice_serials    as Serials;
+  expose zetr_ddl_p_invoice_xslttemp   as XSLTTemplates;
+  expose zetr_ddl_p_invoice_rules      as InvoiceRules;
+}

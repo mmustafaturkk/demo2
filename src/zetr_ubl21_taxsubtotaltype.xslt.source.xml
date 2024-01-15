@@ -1,0 +1,73 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2">
+  <tt:root name="ROOT"/>
+  <tt:template>
+    <tt:namespace name="cbc"/>
+    <tt:namespace name="cac"/>
+
+    <tt:cond s-check="not-initial('.ROOT.TAXABLEAMOUNT')">
+      <cbc:TaxableAmount tt:ref=".ROOT.TAXABLEAMOUNT">
+        <tt:call transformation="ZETR_UBL21_AMOUNTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:TaxableAmount>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.TAXAMOUNT')">
+      <cbc:TaxAmount tt:ref=".ROOT.TAXAMOUNT">
+        <tt:call transformation="ZETR_UBL21_AMOUNTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:TaxAmount>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.CALCULATIONSEQUENCENUMERIC')">
+      <cbc:CalculationSequenceNumeric tt:ref=".ROOT.CALCULATIONSEQUENCENUMERIC">
+        <tt:call transformation="ZETR_UBL21_NUMERICTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:CalculationSequenceNumeric>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.TRANSACTIONCURRENCYTAXAMOUNT')">
+      <cbc:TransactionCurrencyTaxAmount tt:ref=".ROOT.TRANSACTIONCURRENCYTAXAMOUNT">
+        <tt:call transformation="ZETR_UBL21_AMOUNTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:TransactionCurrencyTaxAmount>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.PERCENT')">
+      <cbc:Percent tt:ref=".ROOT.PERCENT">
+        <tt:call transformation="ZETR_UBL21_NUMERICTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:Percent>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.BASEUNITMEASURE')">
+      <cbc:BaseUnitMeasure tt:ref=".ROOT.BASEUNITMEASURE">
+        <tt:call transformation="ZETR_UBL21_MEASURETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:BaseUnitMeasure>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.PERUNITAMOUNT')">
+      <cbc:PerUnitAmount tt:ref=".ROOT.PERUNITAMOUNT">
+        <tt:call transformation="ZETR_UBL21_AMOUNTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:PerUnitAmount>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.TAXCATEGORY')">
+      <cac:TaxCategory tt:ref=".ROOT.TAXCATEGORY">
+        <tt:call transformation="ZETR_UBL21_TAXCATEGORYTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:TaxCategory>
+    </tt:cond>
+
+  </tt:template>
+</tt:transform>

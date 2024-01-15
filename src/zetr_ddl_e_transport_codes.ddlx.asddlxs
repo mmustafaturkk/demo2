@@ -1,0 +1,26 @@
+@Metadata.layer: #CORE
+@Search.searchable: true
+@UI:{
+headerInfo:{
+                typeNamePlural: 'Company Information',
+                typeName: 'Company Information',
+                title:{ type: #STANDARD, label: 'Company Information', value: 'Description' }
+           }
+}
+annotate entity zetr_ddl_p_transport_codes with
+{
+  @UI.facet: [ { id:              'Transport',
+                 purpose:         #STANDARD,
+                 type:            #IDENTIFICATION_REFERENCE,
+                 label:           'TRA Transport Codes',
+                 position:        10 } ]
+  @UI: { lineItem:       [ { position: 10, importance: #HIGH } ],
+         selectionField: [ { position: 10 } ],
+         identification: [{ position: 10 }] }
+  @Search.defaultSearchElement: true
+  TransportCode;
+  @UI: { lineItem:       [ { position: 20, importance: #HIGH } ],
+         selectionField: [ { position: 20 } ],
+         identification: [{ position: 20 }] }
+  Description;
+}

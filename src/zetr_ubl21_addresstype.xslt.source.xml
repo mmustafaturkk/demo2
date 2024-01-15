@@ -1,0 +1,115 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2">
+  <tt:root name="ROOT"/>
+  <tt:template>
+    <tt:namespace name="cbc"/>
+    <tt:namespace name="cac"/>
+
+    <tt:cond s-check="not-initial('.ROOT.ID')">
+      <cbc:ID tt:ref=".ROOT.ID">
+        <tt:call transformation="ZETR_UBL21_IDENTIFIERTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:ID>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.POSTBOX')">
+      <cbc:Postbox tt:ref=".ROOT.POSTBOX">
+        <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:Postbox>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.ROOM')">
+      <cbc:Room tt:ref=".ROOT.ROOM">
+        <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:Room>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.STREETNAME')">
+      <cbc:StreetName tt:ref=".ROOT.STREETNAME">
+        <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:StreetName>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.BLOCKNAME')">
+      <cbc:BlockName tt:ref=".ROOT.BLOCKNAME">
+        <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:BlockName>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.BUILDINGNAME')">
+      <cbc:BuildingName tt:ref=".ROOT.BUILDINGNAME">
+        <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:BuildingName>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.BUILDINGNUMBER')">
+      <cbc:BuildingNumber tt:ref=".ROOT.BUILDINGNUMBER">
+        <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:BuildingNumber>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.CITYSUBDIVISIONNAME')">
+      <cbc:CitySubdivisionName tt:ref=".ROOT.CITYSUBDIVISIONNAME">
+        <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:CitySubdivisionName>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.CITYNAME')">
+      <cbc:CityName tt:ref=".ROOT.CITYNAME">
+        <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:CityName>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.POSTALZONE')">
+      <cbc:PostalZone tt:ref=".ROOT.POSTALZONE">
+        <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:PostalZone>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.REGION')">
+      <cbc:Region tt:ref=".ROOT.REGION">
+        <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:Region>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.DISTRICT')">
+      <cbc:District tt:ref=".ROOT.DISTRICT">
+        <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:District>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.COUNTRY')">
+      <cac:Country tt:ref=".ROOT.COUNTRY">
+        <cbc:Name tt:ref=".ROOT.COUNTRY">
+          <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+            <tt:with-root name="ROOT" ref="$REF"/>
+          </tt:call>
+        </cbc:Name>
+      </cac:Country>
+    </tt:cond>
+
+  </tt:template>
+</tt:transform>

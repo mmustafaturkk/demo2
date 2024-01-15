@@ -1,0 +1,8 @@
+@EndUserText.label: 'eArchive Parameters'
+define service ZETR_DDL_D_ARCHIVE_PARAMETERS {
+  expose zetr_ddl_p_archive_parameters as eArchiveParameters;
+  expose zetr_ddl_p_archive_custom     as CustomParameters;
+  expose zetr_ddl_p_archive_serials    as Serials;
+  expose zetr_ddl_p_archive_xslttemp   as XSLTTemplates;
+  expose zetr_ddl_p_archive_rules      as InvoiceRules;
+}

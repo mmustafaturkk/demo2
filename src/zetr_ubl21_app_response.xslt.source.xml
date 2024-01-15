@@ -1,0 +1,149 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates">
+  <tt:root name="ROOT"/>
+  <tt:template>
+    <ApplicationResponse
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2"
+        xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+        xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+        xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2"
+        xsi:schemaLocation="urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2 UBL-ApplicationResponse-2.1.xsd" >
+      <!--xmlns:xsd="http://www.w3.org/2001/XMLSchema">-->
+      <!--attributeFormDefault="unqualified" elementFormDefault="qualified" version="2.1"-->
+      <!--targetNamespace="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">-->
+      <tt:namespace name="cac"/>
+      <tt:namespace name="cbc"/>
+      <tt:namespace name="ext"/>
+      <tt:namespace name="xsi"/>
+
+      <!--ext:UBLExtensions-->
+      <tt:cond s-check="not-initial('.ROOT.UBLEXTENSIONS')">
+        <ext:UBLExtensions tt:ref=".ROOT.UBLEXTENSIONS">
+          <tt:loop ref="UBLEXTENSION">
+            <ext:UBLExtension>
+              <ext:ExtensionContent>
+                <tt:value ref="EXTENSIONCONTENT.ANY"/>
+              </ext:ExtensionContent>
+            </ext:UBLExtension>
+          </tt:loop>
+        </ext:UBLExtensions>
+      </tt:cond>
+
+      <!--cbc:UBLVersionID-->
+      <tt:cond s-check="not-initial('.ROOT.UBLVERSIONID')">
+        <cbc:UBLVersionID tt:ref=".ROOT.UBLVERSIONID">
+          <tt:call transformation="ZETR_UBL21_IDENTIFIERTYPE">
+            <tt:with-root name="ROOT" ref="$REF"/>
+          </tt:call>
+        </cbc:UBLVersionID>
+      </tt:cond>
+
+      <!--cbc:CustomizationID-->
+      <tt:cond s-check="not-initial('.ROOT.CUSTOMIZATIONID')">
+        <cbc:CustomizationID tt:ref=".ROOT.CUSTOMIZATIONID">
+          <tt:call transformation="ZETR_UBL21_IDENTIFIERTYPE">
+            <tt:with-root name="ROOT" ref="$REF"/>
+          </tt:call>
+        </cbc:CustomizationID>
+      </tt:cond>
+
+      <!--cbc:ProfileID-->
+      <tt:cond s-check="not-initial('.ROOT.PROFILEID')">
+        <cbc:ProfileID tt:ref=".ROOT.PROFILEID">
+          <tt:call transformation="ZETR_UBL21_IDENTIFIERTYPE">
+            <tt:with-root name="ROOT" ref="$REF"/>
+          </tt:call>
+        </cbc:ProfileID>
+      </tt:cond>
+
+      <!--cbc:ID-->
+      <tt:cond s-check="not-initial('.ROOT.ID')">
+        <cbc:ID tt:ref=".ROOT.ID">
+          <tt:call transformation="ZETR_UBL21_IDENTIFIERTYPE">
+            <tt:with-root name="ROOT" ref="$REF"/>
+          </tt:call>
+        </cbc:ID>
+      </tt:cond>
+
+      <!--cbc:UUID-->
+      <tt:cond s-check="not-initial('.ROOT.UUID')">
+        <cbc:UUID tt:ref=".ROOT.UUID">
+          <tt:call transformation="ZETR_UBL21_IDENTIFIERTYPE">
+            <tt:with-root name="ROOT" ref="$REF"/>
+          </tt:call>
+        </cbc:UUID>
+      </tt:cond>
+
+      <!--cbc:IssueDate-->
+      <tt:cond s-check="not-initial('.ROOT.ISSUEDATE')">
+        <cbc:IssueDate tt:ref=".ROOT.ISSUEDATE">
+          <tt:call transformation="ZETR_UBL21_DATETYPE">
+            <tt:with-root name="ROOT" ref="$REF"/>
+          </tt:call>
+        </cbc:IssueDate>
+      </tt:cond>
+
+      <!--cbc:IssueTime-->
+      <tt:cond s-check="not-initial('.ROOT.ISSUETIME')">
+        <cbc:IssueTime tt:ref=".ROOT.ISSUETIME">
+          <tt:call transformation="ZETR_UBL21_TIMETYPE">
+            <tt:with-root name="ROOT" ref="$REF"/>
+          </tt:call>
+        </cbc:IssueTime>
+      </tt:cond>
+
+      <!--cbc:Note-->
+      <tt:cond s-check="not-initial('.ROOT.NOTE')">
+        <tt:loop ref=".ROOT.NOTE">
+          <cbc:Note tt:ref="$REF">
+            <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+              <tt:with-root name="ROOT" ref="$REF"/>
+            </tt:call>
+          </cbc:Note>
+        </tt:loop>
+      </tt:cond>
+
+      <!--cac:Signature-->
+      <tt:cond s-check="not-initial('.ROOT.SIGNATURE')">
+        <tt:loop ref=".ROOT.SIGNATURE">
+          <cac:Signature tt:ref="$REF">
+            <tt:call transformation="ZETR_UBL21_SIGNATURETYPE">
+              <tt:with-root name="ROOT" ref="$REF"/>
+            </tt:call>
+          </cac:Signature>
+        </tt:loop>
+      </tt:cond>
+
+      <!--cac:SenderParty-->
+      <tt:cond s-check="not-initial('.ROOT.SENDERPARTY')">
+        <cac:SenderParty tt:ref=".ROOT.SENDERPARTY">
+          <tt:call transformation="ZETR_UBL21_PARTYTYPE">
+            <tt:with-root name="ROOT" ref="$REF"/>
+          </tt:call>
+        </cac:SenderParty>
+      </tt:cond>
+
+      <!--cac:ReceiverParty-->
+      <tt:cond s-check="not-initial('.ROOT.RECEIVERPARTY')">
+        <cac:ReceiverParty tt:ref=".ROOT.RECEIVERPARTY">
+          <tt:call transformation="ZETR_UBL21_PARTYTYPE">
+            <tt:with-root name="ROOT" ref="$REF"/>
+          </tt:call>
+        </cac:ReceiverParty>
+      </tt:cond>
+
+      <!--cac:DocumentResponse-->
+      <tt:cond s-check="not-initial('.ROOT.DOCUMENTRESPONSE')">
+        <tt:loop ref=".ROOT.DOCUMENTRESPONSE">
+          <cac:DocumentResponse tt:ref="$REF">
+            <tt:call transformation="ZETR_UBL21_DOCUMENTRESPONSETYP">
+              <tt:with-root name="ROOT" ref="$REF"/>
+            </tt:call>
+          </cac:DocumentResponse>
+        </tt:loop>
+      </tt:cond>
+
+    </ApplicationResponse>
+  </tt:template>
+</tt:transform>

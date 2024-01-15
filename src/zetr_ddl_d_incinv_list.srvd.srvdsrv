@@ -1,0 +1,6 @@
+@EndUserText.label: 'Incoming Invoice List'
+define service ZETR_DDL_D_INCINV_LIST {
+  expose zetr_ddl_i_incinv_list    as IncomingInvoiceList;
+  expose zetr_ddl_i_incinv_content as InvoiceContents;
+  expose zetr_ddl_i_incinv_logs    as InvoiceLogs;
+}

@@ -1,0 +1,32 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2">
+  <tt:root name="ROOT"/>
+  <tt:template>
+    <tt:namespace name="cbc"/>
+
+    <tt:cond s-check="not-initial('.ROOT.CHANNELCODE')">
+      <cbc:ChannelCode tt:ref=".ROOT.CHANNELCODE">
+        <tt:call transformation="ZETR_UBL21_CODETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:ChannelCode>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.CHANNEL')">
+      <cbc:Channel tt:ref=".ROOT.CHANNEL">
+        <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:Channel>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.VALUE')">
+      <cbc:Value tt:ref=".ROOT.VALUE">
+        <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:Value>
+    </tt:cond>
+
+  </tt:template>
+</tt:transform>

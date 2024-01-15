@@ -1,0 +1,45 @@
+managed implementation in class zbp_etr_ddl_i_outgoing_invoice unique;
+strict ( 2 );
+
+define behavior for zetr_ddl_i_outgoing_invoices alias OutgoingInvoices
+//persistent table <???>
+with unmanaged save
+lock master
+authorization master ( global, instance )
+//etag master <field_name>
+{
+  //  create;
+  update ( features : instance );
+  delete ( features : instance );
+  field ( readonly : update ) DocumentUUID;
+  field ( features : instance )
+  ProfileID,
+  eArchiveType,
+  InternetSale,
+  Aliass,
+  InvoiceType,
+  TaxType,
+  SerialPrefix,
+  XSLTTemplate,
+  TaxExemption,
+  CollectItems,
+  InvoiceNote;
+
+  association _invoiceLogs;
+
+  action ( features : instance ) sendInvoices result [1] $self;
+  action ( features : instance ) archiveInvoices result [1] $self;
+  action ( features : instance ) downloadInvoices result [1] $self;
+  action ( features : instance ) statusUpdate result [1] $self;
+  action ( features : instance ) setAsRejected result [1] $self;
+}
+
+define behavior for zetr_ddl_i_outinv_logs alias Logs
+persistent table zetr_t_logs
+lock dependent by _outgoingInvoices
+authorization dependent by _outgoingInvoices
+//etag master <field_name>
+{
+  field ( readonly : update ) LogUUID, DocumentUUID;
+  association _outgoingInvoices;
+}

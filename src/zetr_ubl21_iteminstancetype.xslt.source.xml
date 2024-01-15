@@ -1,0 +1,75 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2">
+  <tt:root name="ROOT"/>
+  <tt:template>
+    <tt:namespace name="cbc"/>
+    <tt:namespace name="cac"/>
+
+    <tt:cond s-check="not-initial('.ROOT.PRODUCTTRACEID')">
+      <cbc:ProductTraceID tt:ref=".ROOT.PRODUCTTRACEID">
+        <tt:call transformation="ZETR_UBL21_IDENTIFIERTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:ProductTraceID>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.MANUFACTUREDATE')">
+      <cbc:ManufactureDate tt:ref=".ROOT.MANUFACTUREDATE">
+        <tt:call transformation="ZETR_UBL21_DATETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:ManufactureDate>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.MANUFACTURETIME')">
+      <cbc:ManufactureTime tt:ref=".ROOT.MANUFACTURETIME">
+        <tt:call transformation="ZETR_UBL21_TIMETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:ManufactureTime>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.BESTBEFOREDATE')">
+      <cbc:BestBeforeDate tt:ref=".ROOT.BESTBEFOREDATE">
+        <tt:call transformation="ZETR_UBL21_DATETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:BestBeforeDate>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.REGISTRATIONID')">
+      <cbc:RegistrationID tt:ref=".ROOT.REGISTRATIONID">
+        <tt:call transformation="ZETR_UBL21_IDENTIFIERTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:RegistrationID>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.SERIALID')">
+      <cbc:SerialID tt:ref=".ROOT.SERIALID">
+        <tt:call transformation="ZETR_UBL21_IDENTIFIERTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:SerialID>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.ADDITIONALITEMPROPERTY')">
+      <tt:loop ref=".ROOT.ADDITIONALITEMPROPERTY">
+        <cac:AdditionalItemProperty tt:ref="$REF">
+          <tt:call transformation="ZETR_UBL21_ITEMPROPERTYTYPE">
+            <tt:with-root name="ROOT" ref="$REF"/>
+          </tt:call>
+        </cac:AdditionalItemProperty>
+      </tt:loop>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.LOTIDENTIFICATION')">
+      <cac:LotIdentification tt:ref=".ROOT.LOTIDENTIFICATION">
+        <tt:call transformation="ZETR_UBL21_LOTIDENTIFICATIONTY">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:LotIdentification>
+    </tt:cond>
+
+  </tt:template>
+</tt:transform>

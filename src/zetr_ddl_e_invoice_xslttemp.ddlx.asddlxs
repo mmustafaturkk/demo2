@@ -1,0 +1,25 @@
+@Metadata.layer: #CORE
+@UI:{
+headerInfo:{
+                typeNamePlural: 'XSLT Templates',
+                typeName: 'XSLT Template',
+                title:{ type: #STANDARD, label: 'XSLT Templates', value: 'XSLTTemplate' }
+           }
+}
+annotate entity zetr_ddl_p_invoice_xslttemp with
+{
+  @UI.facet: [ { id:            'XSLTTemplates',
+                 purpose:       #STANDARD,
+                 type:          #IDENTIFICATION_REFERENCE,
+                 label:         'XSLT Templates',
+                 position:      10 }  ]
+  @UI.hidden: true
+  CompanyCode;
+  @UI: { lineItem: [ { position: 20, importance: #HIGH } ],
+         identification: [{ position: 20 }] }
+  XSLTTemplate;
+  @UI: { lineItem: [ { position: 30 } ],
+         identification: [{ position: 30 }] }
+  DefaultTemplate;
+
+}

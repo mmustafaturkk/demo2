@@ -1,0 +1,57 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2">
+  <tt:root name="ROOT"/>
+  <tt:template>
+    <tt:namespace name="cbc"/>
+    <tt:namespace name="cac"/>
+
+    <tt:cond s-check="not-initial('.ROOT.Note')">
+      <cbc:Note tt:ref=".ROOT.Note">
+        <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:Note>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.PENALTYSURCHARGEPERCENT')">
+      <cbc:PenaltySurchargePercent tt:ref=".ROOT.PENALTYSURCHARGEPERCENT">
+        <tt:call transformation="ZETR_UBL21_NUMERICTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:PenaltySurchargePercent>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.AMOUNT')">
+      <cbc:Amount tt:ref=".ROOT.AMOUNT">
+        <tt:call transformation="ZETR_UBL21_AMOUNTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:Amount>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.PENALTYAMOUNT')">
+      <cbc:PenaltyAmount tt:ref=".ROOT.PENALTYAMOUNT">
+        <tt:call transformation="ZETR_UBL21_AMOUNTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:PenaltyAmount>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.PAYMENTDUEDATE')">
+      <cbc:PaymentDueDate tt:ref=".ROOT.PAYMENTDUEDATE">
+        <tt:call transformation="ZETR_UBL21_DATETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:PaymentDueDate>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.SETTLEMENTPERIOD')">
+      <cac:SettlementPeriod tt:ref=".ROOT.SETTLEMENTPERIOD">
+        <tt:call transformation="ZETR_UBL21_PERIODTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:SettlementPeriod>
+    </tt:cond>
+
+  </tt:template>
+</tt:transform>

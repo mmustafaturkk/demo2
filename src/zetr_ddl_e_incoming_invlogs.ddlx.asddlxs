@@ -1,0 +1,40 @@
+@Metadata.layer: #CORE
+@UI:{
+headerInfo:{
+                typeNamePlural: 'Invoice Logs',
+                typeName: 'Invoice Log',
+                title:{ type: #STANDARD, label: 'Invoice Logs', value: 'LogCodeDescription' }
+           }
+}
+annotate entity zetr_ddl_p_incoming_invlogs with
+{
+  @UI.facet: [ { id:            'Logs',
+                 purpose:       #STANDARD,
+                 type:          #IDENTIFICATION_REFERENCE,
+                 label:         'Invoice Logs',
+                 position:      10 }  ]
+  @UI.hidden: true
+  LogUUID;
+  @UI.hidden: true
+  DocumentUUID;
+  @UI: { lineItem: [ { position: 20 } ],
+         identification: [ { position: 20 } ] }
+  CreatedBy;
+  @UI.hidden: true
+  UserFullName;
+  @UI: { lineItem: [ { position: 30 } ],
+         identification: [ { position: 30 } ] }
+  CreationDate;
+  @UI: { lineItem: [ { position: 40 } ],
+         identification: [ { position: 40 } ] }
+  CreationTime;
+  @UI: { lineItem: [ { position: 50 } ],
+         identification: [ { position: 50 } ] }
+  LogCode;
+  @UI.hidden: true
+  LogCodeDescription;
+  @UI: { lineItem: [ { position: 60 } ],
+         identification: [ { position: 60 } ] }
+  LogNote;
+
+}

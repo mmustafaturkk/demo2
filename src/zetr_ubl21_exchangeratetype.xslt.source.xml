@@ -1,0 +1,41 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2">
+  <tt:root name="ROOT"/>
+  <tt:template>
+    <tt:namespace name="cbc"/>
+    <tt:namespace name="cac"/>
+
+    <tt:cond s-check="not-initial('.ROOT.SOURCECURRENCYCODE')">
+      <cbc:SourceCurrencyCode tt:ref=".ROOT.SOURCECURRENCYCODE">
+        <tt:call transformation="ZETR_UBL21_CODETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:SourceCurrencyCode>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.TARGETCURRENCYCODE')">
+      <cbc:TargetCurrencyCode tt:ref=".ROOT.TARGETCURRENCYCODE">
+        <tt:call transformation="ZETR_UBL21_CODETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:TargetCurrencyCode>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.CALCULATIONRATE')">
+      <cbc:CalculationRate tt:ref=".ROOT.CALCULATIONRATE">
+        <tt:call transformation="ZETR_UBL21_NUMERICTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:CalculationRate>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.DATE')">
+      <cbc:Date tt:ref=".ROOT.DATE">
+        <tt:call transformation="ZETR_UBL21_DATETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:Date>
+    </tt:cond>
+
+  </tt:template>
+</tt:transform>

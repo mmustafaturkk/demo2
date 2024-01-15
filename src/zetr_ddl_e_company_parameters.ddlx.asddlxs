@@ -1,0 +1,25 @@
+@Metadata.layer: #CORE
+@UI:{
+headerInfo:{
+                typeNamePlural: 'Custom Parameters',
+                typeName: 'Custom Parameter',
+                title:{ type: #STANDARD, label: 'Custom Parameter', value: 'CustomParameter' }
+           }
+}
+annotate entity zetr_ddl_p_company_parameters with
+{
+  @UI.facet: [ { id:            'Parameters',
+                 purpose:       #STANDARD,
+                 type:          #IDENTIFICATION_REFERENCE,
+                 label:         'Custom Parameters',
+                 position:      10 }  ]
+  @UI.hidden: true
+  CompanyCode;
+  @UI: { lineItem: [ { position: 20, importance: #HIGH } ],
+         identification: [{ position: 20 }] }
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'zetr_ddl_vh_custom_parameters', element: 'CustomParameter' }}]
+  CustomParameter;
+  @UI: { lineItem: [ { position: 30, importance: #HIGH } ],
+         identification: [{ position: 30 }] }
+  Value;
+}

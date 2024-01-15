@@ -1,0 +1,121 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2">
+  <tt:root name="ROOT"/>
+  <tt:template>
+    <tt:namespace name="cbc"/>
+    <tt:namespace name="cac"/>
+
+    <tt:cond s-check="not-initial('.ROOT.ID')">
+      <cbc:ID tt:ref=".ROOT.ID">
+        <tt:call transformation="ZETR_UBL21_IDENTIFIERTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:ID>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.NAME')">
+      <cbc:Name tt:ref=".ROOT.NAME">
+        <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:Name>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.NAMECODE')">
+      <cbc:NameCode tt:ref=".ROOT.NAMECODE">
+        <tt:call transformation="ZETR_UBL21_CODETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:NameCode>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.TESTMETHOD')">
+      <cbc:TestMethod tt:ref=".ROOT.TESTMETHOD">
+        <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:TestMethod>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.VALUE')">
+      <cbc:Value tt:ref=".ROOT.VALUE">
+        <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:Value>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.VALUEQUANTITY')">
+      <cbc:ValueQuantity tt:ref=".ROOT.VALUEQUANTITY">
+        <tt:call transformation="ZETR_UBL21_QUANTITYTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:ValueQuantity>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.VALUEQUALIFIER')">
+      <tt:loop ref=".ROOT.VALUEQUALIFIER">
+        <cbc:ValueQualifier tt:ref="$REF">
+          <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+            <tt:with-root name="ROOT" ref="$REF"/>
+          </tt:call>
+        </cbc:ValueQualifier>
+      </tt:loop>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.IMPORTANCECODE')">
+      <cbc:ImportanceCode tt:ref=".ROOT.IMPORTANCECODE">
+        <tt:call transformation="ZETR_UBL21_CODETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:ImportanceCode>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.LISTVALUE')">
+      <tt:loop ref=".ROOT.LISTVALUE">
+        <cbc:ListValue tt:ref="$REF">
+          <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+            <tt:with-root name="ROOT" ref="$REF"/>
+          </tt:call>
+        </cbc:ListValue>
+      </tt:loop>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.USABILITYPERIOD')">
+      <cac:UsabilityPeriod tt:ref=".ROOT.USABILITYPERIOD">
+        <tt:call transformation="ZETR_UBL21_CODETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:UsabilityPeriod>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.ITEMPROPERTYGROUP')">
+      <tt:loop ref=".ROOT.ITEMPROPERTYGROUP">
+        <cac:ItemPropertyGroup tt:ref="$REF">
+          <tt:call transformation="ZETR_UBL21_ITEMPROPERTYGROUPTY">
+            <tt:with-root name="ROOT" ref="$REF"/>
+          </tt:call>
+        </cac:ItemPropertyGroup>
+      </tt:loop>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.RANGEDIMENSION')">
+      <cac:RangeDimension tt:ref=".ROOT.RANGEDIMENSION">
+        <tt:call transformation="ZETR_UBL21_DIMENSIONTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:RangeDimension>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.ITEMPROPERTYRANGE')">
+      <tt:loop ref=".ROOT.ITEMPROPERTYRANGE">
+        <cac:ItemPropertyRange tt:ref="$REF">
+          <tt:call transformation="ZETR_UBL21_ITEMPROPERTYRANGETY">
+            <tt:with-root name="ROOT" ref="$REF"/>
+          </tt:call>
+        </cac:ItemPropertyRange>
+      </tt:loop>
+    </tt:cond>
+
+  </tt:template>
+</tt:transform>

@@ -1,0 +1,87 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2">
+  <tt:root name="ROOT"/>
+  <tt:template>
+    <tt:namespace name="cbc"/>
+    <tt:namespace name="cac"/>
+
+    <tt:cond s-check="not-initial('.ROOT.ID')">
+      <cbc:ID tt:ref=".ROOT.ID">
+        <tt:call transformation="ZETR_UBL21_IDENTIFIERTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:ID>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.QUANTITY')">
+      <cbc:Quantity tt:ref=".ROOT.QUANTITY">
+        <tt:call transformation="ZETR_UBL21_QUANTITYTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:Quantity>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.RETURNABLEMATERIALINDICATOR')">
+      <cbc:ReturnableMaterialIndicator tt:ref=".ROOT.RETURNABLEMATERIALINDICATOR">
+        <tt:call transformation="ZETR_UBL21_INDICATORTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:ReturnableMaterialIndicator>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.PACKAGELEVELCODE')">
+      <cbc:PackageLevelCode tt:ref=".ROOT.PACKAGELEVELCODE">
+        <tt:call transformation="ZETR_UBL21_CODETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:PackageLevelCode>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.PACKAGINGTYPECODE')">
+      <cbc:PackagingTypeCode tt:ref=".ROOT.PACKAGINGTYPECODE">
+        <tt:call transformation="ZETR_UBL21_CODETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:PackagingTypeCode>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.PACKINGMATERIAL')">
+      <tt:loop ref=".ROOT.PACKINGMATERIAL">
+        <cbc:PackingMaterial tt:ref="$REF">
+          <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+            <tt:with-root name="ROOT" ref="$REF"/>
+          </tt:call>
+        </cbc:PackingMaterial>
+      </tt:loop>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.CONTAINEDPACKAGE')">
+      <tt:loop ref=".ROOT.CONTAINEDPACKAGE">
+        <cac:ContainedPackage tt:ref="$REF">
+          <tt:value ref="CONTAINEDPACKAGE"/>
+        </cac:ContainedPackage>
+      </tt:loop>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.GOODSITEM')">
+      <tt:loop ref=".ROOT.GOODSITEM">
+        <cac:GoodsItem tt:ref="$REF">
+          <tt:call transformation="ZETR_UBL21_GOODSITEMTYPE">
+            <tt:with-root name="ROOT" ref="$REF"/>
+          </tt:call>
+        </cac:GoodsItem>
+      </tt:loop>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.MEASUREMENTDIMENSION')">
+      <tt:loop ref=".ROOT.MEASUREMENTDIMENSION">
+        <cac:MeasurementDimension tt:ref="$REF">
+          <tt:call transformation="ZETR_UBL21_DIMENSIONTYPE">
+            <tt:with-root name="ROOT" ref="$REF"/>
+          </tt:call>
+        </cac:MeasurementDimension>
+      </tt:loop>
+    </tt:cond>
+
+  </tt:template>
+</tt:transform>

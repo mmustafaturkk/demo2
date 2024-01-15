@@ -1,0 +1,77 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2">
+  <tt:root name="ROOT"/>
+  <tt:template>
+    <tt:namespace name="cbc"/>
+    <tt:namespace name="cac"/>
+
+    <tt:cond s-check="not-initial('.ROOT.ID')">
+      <cbc:ID tt:ref=".ROOT.ID">
+        <tt:call transformation="ZETR_UBL21_IDENTIFIERTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:ID>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.TRANSPORTMODECODE')">
+      <cbc:TransportModeCode tt:ref=".ROOT.TRANSPORTMODECODE">
+        <tt:call transformation="ZETR_UBL21_CODETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:TransportModeCode>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.TRANSPORTMEANSTYPECODE')">
+      <cbc:TransportMeansTypeCode tt:ref=".ROOT.TRANSPORTMEANSTYPECODE">
+        <tt:call transformation="ZETR_UBL21_CODETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:TransportMeansTypeCode>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.TRANSITDIRECTIONCODE')">
+      <cbc:TransitDirectionCode tt:ref=".ROOT.TRANSITDIRECTIONCODE">
+        <tt:call transformation="ZETR_UBL21_CODETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:TransitDirectionCode>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.INSTRUCTIONS')">
+      <tt:loop ref=".ROOT.INSTRUCTIONS">
+        <cbc:Instructions tt:ref="$REF">
+          <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+            <tt:with-root name="ROOT" ref="$REF"/>
+          </tt:call>
+        </cbc:Instructions>
+      </tt:loop>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.TRANSITPERIOD')">
+      <cac:TransitPeriod tt:ref=".ROOT.TRANSITPERIOD">
+        <tt:call transformation="ZETR_UBL21_PERIODTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:TransitPeriod>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.TRANSPORTMEANS')">
+      <cac:TransportMeans tt:ref=".ROOT.TRANSPORTMEANS">
+        <tt:call transformation="ZETR_UBL21_TRANSPORTMEANSTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:TransportMeans>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.DRIVERPERSON')">
+      <tt:loop ref=".ROOT.DRIVERPERSON">
+        <cac:DriverPerson tt:ref="$REF">
+          <tt:call transformation="ZETR_UBL21_PERSONTYPE">
+            <tt:with-root name="ROOT" ref="$REF"/>
+          </tt:call>
+        </cac:DriverPerson>
+      </tt:loop>
+    </tt:cond>
+
+  </tt:template>
+</tt:transform>

@@ -1,0 +1,75 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2">
+  <tt:root name="ROOT"/>
+  <tt:template>
+    <tt:namespace name="cbc"/>
+    <tt:namespace name="cac"/>
+
+    <tt:cond s-check="not-initial('.ROOT.INVOICEDOCUMENTREFERENCE')">
+      <cac:InvoiceDocumentReference tt:ref=".ROOT.INVOICEDOCUMENTREFERENCE">
+        <tt:call transformation="ZETR_UBL21_DOCUMENTREFERENCETY">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:InvoiceDocumentReference>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.SELFBILLEDINVOICEDOCUMENTREFER')">
+      <cac:SelfBilledInvoiceDocumentReference tt:ref=".ROOT.SELFBILLEDINVOICEDOCUMENTREFER">
+        <tt:call transformation="ZETR_UBL21_DOCUMENTREFERENCETY">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:SelfBilledInvoiceDocumentReference>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.CREDITNOTEDOCUMENTREFERENCE')">
+      <cac:CreditNoteDocumentReference tt:ref=".ROOT.CREDITNOTEDOCUMENTREFERENCE">
+        <tt:call transformation="ZETR_UBL21_DOCUMENTREFERENCETY">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:CreditNoteDocumentReference>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.SELFBILLEDCREDITNOTEDOCUMENTRE')">
+      <cac:SelfBilledCreditNoteDocumentReference tt:ref=".ROOT.SELFBILLEDCREDITNOTEDOCUMENTRE">
+        <tt:call transformation="ZETR_UBL21_DOCUMENTREFERENCETY">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:SelfBilledCreditNoteDocumentReference>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.DEBITNOTEDOCUMENTREFERENCE')">
+      <cac:DebitNoteDocumentReference tt:ref=".ROOT.DEBITNOTEDOCUMENTREFERENCE">
+        <tt:call transformation="ZETR_UBL21_DOCUMENTREFERENCETY">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:DebitNoteDocumentReference>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.REMINDERDOCUMENTREFERENCE')">
+      <cac:ReminderDocumentReference tt:ref=".ROOT.REMINDERDOCUMENTREFERENCE">
+        <tt:call transformation="ZETR_UBL21_DOCUMENTREFERENCETY">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:ReminderDocumentReference>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.ADDITIONALDOCUMENTREFERENCE')">
+      <cac:AdditionalDocumentReference tt:ref=".ROOT.ADDITIONALDOCUMENTREFERENCE">
+        <tt:call transformation="ZETR_UBL21_DOCUMENTREFERENCETY">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:AdditionalDocumentReference>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.BILLINGREFERENCELINE')">
+      <tt:loop ref=".ROOT.BILLINGREFERENCELINE">
+        <cac:BillingReferenceLine tt:ref="$REF">
+          <tt:call transformation="ZETR_UBL21_BILLINGREFERENCELIN">
+            <tt:with-root name="ROOT" ref="$REF"/>
+          </tt:call>
+        </cac:BillingReferenceLine>
+      </tt:loop>
+    </tt:cond>
+
+  </tt:template>
+</tt:transform>

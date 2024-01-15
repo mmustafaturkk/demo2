@@ -1,0 +1,10 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates">
+  <tt:root name="ROOT"/>
+  <tt:template>
+    <tt:cond s-check="not-initial('.ROOT.FORMAT')">
+      <tt:attribute name="format" value-ref=".ROOT.FORMAT"/>
+    </tt:cond>
+    <tt:value ref=".ROOT.CONTENT"/>
+  </tt:template>
+</tt:transform>

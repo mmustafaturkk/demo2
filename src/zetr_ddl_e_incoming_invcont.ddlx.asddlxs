@@ -1,0 +1,24 @@
+@Metadata.layer: #CORE
+@UI:{
+headerInfo:{
+                typeNamePlural: 'Invoice Contents',
+                typeName: 'Invoice Content',
+                title:{ type: #STANDARD, label: 'Invoice Contents', value: 'Filename' }
+           }
+}
+annotate entity zetr_ddl_p_incoming_invcont with
+{
+  @UI.hidden: true
+  DocumentUUID;
+  @UI.lineItem: [{ position: 1 }]
+  ContentType;
+  @UI.hidden: true
+  CompanyCode;
+  @UI.lineItem: [{ position: 2 }]
+  Content;
+  @UI.hidden: true
+  MimeType;
+  @UI.hidden: true
+  Filename;
+
+}

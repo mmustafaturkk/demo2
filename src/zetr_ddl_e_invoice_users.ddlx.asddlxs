@@ -1,0 +1,45 @@
+@Metadata.layer: #CORE
+@Search.searchable: true
+@UI:{
+headerInfo:{ typeNamePlural: 'eInvoice Users',
+             typeName: 'eInvoice User',
+             title:{ type: #STANDARD, label: 'eInvoice Users', value: 'Title' } } }
+
+annotate entity zetr_ddl_p_invoice_users with
+{
+  @UI.facet: [ { id:              'Users',
+                 purpose:         #STANDARD,
+                 type:            #IDENTIFICATION_REFERENCE,
+                 label:           'eInvoice Users',
+                 position:        10 } ]
+  @UI: { lineItem:       [ { position: 10, importance: #HIGH },
+         { type: #FOR_ACTION, dataAction: 'modify_list', label: 'Update' } ],
+         identification: [{ position: 10 }],
+         selectionField: [ { position: 10 } ] }
+  @Search.defaultSearchElement: true
+  TaxID;
+  @UI.hidden: true
+  RecordNo;
+  @UI: { lineItem:       [ { position: 20, importance: #HIGH } ],
+         identification: [{ position: 20 }],
+         selectionField: [ { position: 20 } ] }
+  Title;
+  @UI: { lineItem: [ { position: 30 } ],
+         identification: [{ position: 30 }] }
+  Aliass;
+  @UI: { lineItem: [ { position: 40 } ],
+         identification: [{ position: 30 }],
+         selectionField: [ { position: 30 } ] }
+  RegisterDate;
+  @UI: { lineItem: [ { position: 50 } ],
+         identification: [{ position: 50 }] }
+  RegisterTime;
+  @UI: { lineItem: [ { position: 60 } ],
+         identification: [{ position: 60 }] }
+  TaxpayerType;
+  @UI.hidden: true
+  TaxpayerTypeText;
+  @UI: { lineItem: [ { position: 70 } ],
+         identification: [{ position: 70 }] }
+  DefaultAlias;
+}

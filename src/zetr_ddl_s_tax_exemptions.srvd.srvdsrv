@@ -1,0 +1,4 @@
+@EndUserText.label: 'TRA Exemption Codes'
+define service ZETR_DDL_S_TAX_EXEMPTIONS {
+  expose zetr_ddl_p_tax_exemptions;
+}

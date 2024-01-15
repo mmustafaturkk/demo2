@@ -1,0 +1,101 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2">
+  <tt:root name="ROOT"/>
+  <tt:template>
+    <tt:namespace name="cbc"/>
+    <tt:namespace name="cac"/>
+
+    <tt:cond s-check="not-initial('.ROOT.DESCRIPTION')">
+      <cbc:Description tt:ref=".ROOT.DESCRIPTION">
+        <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:Description>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.NAME')">
+      <cbc:Name tt:ref=".ROOT.NAME">
+        <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:Name>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.MODELNAME')">
+      <cbc:ModelName tt:ref=".ROOT.MODELNAME">
+        <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:ModelName>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.BRANDNAME')">
+      <cbc:BrandName tt:ref=".ROOT.BRANDNAME">
+        <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:BrandName>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.BUYERSITEMIDENTIFICATION')">
+      <cac:BuyersItemIdentification tt:ref=".ROOT.BUYERSITEMIDENTIFICATION">
+        <tt:call transformation="ZETR_UBL21_ITEMIDENTIFICATION">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:BuyersItemIdentification>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.SELLERSITEMIDENTIFICATION')">
+      <cac:SellersItemIdentification tt:ref=".ROOT.SELLERSITEMIDENTIFICATION">
+        <tt:call transformation="ZETR_UBL21_ITEMIDENTIFICATION">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:SellersItemIdentification>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.MANUFACTURERSITEMIDENTIFICATIO')">
+      <cac:ManufacturersItemIdentification tt:ref=".ROOT.MANUFACTURERSITEMIDENTIFICATIO">
+        <tt:call transformation="ZETR_UBL21_ITEMIDENTIFICATION">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:ManufacturersItemIdentification>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.ADDITIONALITEMIDENTIFICATION')">
+      <tt:loop ref=".ROOT.ADDITIONALITEMIDENTIFICATION">
+        <cac:AdditionalItemIdentification tt:ref="$REF">
+          <tt:call transformation="ZETR_UBL21_ITEMIDENTIFICATION">
+            <tt:with-root name="ROOT" ref="$REF"/>
+          </tt:call>
+        </cac:AdditionalItemIdentification>
+      </tt:loop>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.ORIGINCOUNTRY')">
+      <cac:OriginCountry tt:ref=".ROOT.ORIGINCOUNTRY">
+        <tt:call transformation="ZETR_UBL21_COUNTRYTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:OriginCountry>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.COMMODITYCLASSIFICATION')">
+      <cac:CommodityClassification tt:ref=".ROOT.COMMODITYCLASSIFICATION">
+        <tt:call transformation="ZETR_UBL21_COMMODITYCLASS">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:CommodityClassification>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.ITEMINSTANCE')">
+      <tt:loop ref=".ROOT.ITEMINSTANCE">
+        <cac:ItemInstance tt:ref="$REF">
+          <tt:call transformation="ZETR_UBL21_ITEMINSTANCETYPE">
+            <tt:with-root name="ROOT" ref="$REF"/>
+          </tt:call>
+        </cac:ItemInstance>
+      </tt:loop>
+    </tt:cond>
+
+  </tt:template>
+</tt:transform>

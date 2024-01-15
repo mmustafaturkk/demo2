@@ -1,0 +1,6 @@
+@EndUserText.label: 'Company Information'
+define service Zetr_ddl_s_company_information {
+  expose zetr_ddl_p_company_information as CompanyInformation;
+  expose zetr_ddl_p_company_identify    as CompanyIdentifications;
+  expose zetr_ddl_p_company_parameters  as CompanyParameters;
+}

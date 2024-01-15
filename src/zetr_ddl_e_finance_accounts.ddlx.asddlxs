@@ -1,0 +1,45 @@
+@Metadata.layer: #CORE
+@Search.searchable: true
+@UI:{
+headerInfo:{ typeNamePlural: 'GL Accounts',
+             typeName: 'GL Account',
+             title:{ type: #STANDARD, label: 'GL Accounts', value: 'GLAccountText' } } }
+annotate entity zetr_ddl_p_finance_accounts with
+{
+  @UI.facet: [ { id:              'Users',
+                 purpose:         #STANDARD,
+                 type:            #IDENTIFICATION_REFERENCE,
+                 label:           'GL Accounts',
+                 position:        10 } ]
+  @UI: { lineItem:       [ { position: 10, importance: #HIGH }],
+         identification: [{ position: 10 }],
+         selectionField: [ { position: 10 } ] }
+  @Search.defaultSearchElement: true
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_ChartOfAccounts', element: 'ChartOfAccounts' }}]
+  ChartOfAccounts;
+  @UI: { lineItem:       [ { position: 20, importance: #HIGH }],
+         identification: [{ position: 20 }],
+         selectionField: [ { position: 20 } ] }
+  @Search.defaultSearchElement: true
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_GLAccount', element: 'GLAccount' }}]
+  GLAccount;
+  @UI.hidden: true
+  ChartOfAccountsText;
+  @UI.hidden: true
+  GLAccountText;
+  @UI: { lineItem:       [ { position: 30 }],
+         identification: [{ position: 30 }],
+         selectionField: [ { position: 30 } ] }
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'zetr_ddl_vh_account_type', element: 'AccountType' }}]
+  AccountType;
+  @UI.hidden: true
+  AccountTypeText;
+  @UI: { lineItem:       [ { position: 40 }],
+         identification: [{ position: 40 }],
+         selectionField: [ { position: 40 } ] }
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'zetr_ddl_vh_tra_tax_codes', element: 'TaxCode' }}]
+  TaxType;
+  @UI.hidden: true
+  TaxTypeText;
+
+}

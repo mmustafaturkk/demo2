@@ -1,0 +1,25 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates">
+  <tt:root name="ROOT"/>
+  <tt:template>
+    <tt:cond s-check="not-initial('.ROOT.FORMAT')">
+      <tt:attribute name="format" value-ref=".ROOT.FORMAT"/>
+    </tt:cond>
+    <tt:cond s-check="not-initial('.ROOT.MIMECODE')">
+      <tt:attribute name="mimeCode" value-ref=".ROOT.MIMECODE"/>
+    </tt:cond>
+    <tt:cond s-check="not-initial('.ROOT.ENCODINGCODE')">
+      <tt:attribute name="encodingCode" value-ref=".ROOT.ENCODINGCODE"/>
+    </tt:cond>
+    <tt:cond s-check="not-initial('.ROOT.CHARACTERSETCODE')">
+      <tt:attribute name="characterSetCode" value-ref=".ROOT.CHARACTERSETCODE"/>
+    </tt:cond>
+    <tt:cond s-check="not-initial('.ROOT.URI')">
+      <tt:attribute name="uri" value-ref=".ROOT.URI"/>
+    </tt:cond>
+    <tt:cond s-check="not-initial('.ROOT.FILENAME')">
+      <tt:attribute name="filename" value-ref=".ROOT.FILENAME"/>
+    </tt:cond>
+    <tt:value ref=".ROOT.CONTENT"/>
+  </tt:template>
+</tt:transform>

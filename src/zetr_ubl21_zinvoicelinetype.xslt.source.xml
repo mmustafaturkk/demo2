@@ -1,0 +1,129 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2">
+  <tt:root name="ROOT"/>
+  <tt:template>
+    <tt:namespace name="cbc"/>
+    <tt:namespace name="cac"/>
+
+    <tt:cond s-check="not-initial('.ROOT.ID')">
+      <cbc:ID tt:ref=".ROOT.ID">
+        <tt:call transformation="ZETR_UBL21_IDENTIFIERTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:ID>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.NOTE')">
+      <tt:loop ref=".ROOT.NOTE">
+        <cbc:Note tt:ref="$REF">
+          <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+            <tt:with-root name="ROOT" ref="$REF"/>
+          </tt:call>
+        </cbc:Note>
+      </tt:loop>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.INVOICEDQUANTITY')">
+      <cbc:InvoicedQuantity tt:ref=".ROOT.INVOICEDQUANTITY">
+        <tt:call transformation="ZETR_UBL21_QUANTITYTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:InvoicedQuantity>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.LINEEXTENSIONAMOUNT')">
+      <cbc:LineExtensionAmount tt:ref=".ROOT.LINEEXTENSIONAMOUNT">
+        <tt:call transformation="ZETR_UBL21_AMOUNTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:LineExtensionAmount>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.ORDERLINEREFERENCE')">
+      <tt:loop ref=".ROOT.ORDERLINEREFERENCE">
+        <cac:OrderLineReference tt:ref="$REF">
+          <tt:call transformation="ZETR_UBL21_ORDERLINEREFERENCE">
+            <tt:with-root name="ROOT" ref="$REF"/>
+          </tt:call>
+        </cac:OrderLineReference>
+      </tt:loop>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.DESPATCHLINEREFERENCE')">
+      <tt:loop ref=".ROOT.DESPATCHLINEREFERENCE">
+        <cac:DespatchLineReference tt:ref="$REF">
+          <tt:call transformation="ZETR_UBL21_LINEREFERENCETYPE">
+            <tt:with-root name="ROOT" ref="$REF"/>
+          </tt:call>
+        </cac:DespatchLineReference>
+      </tt:loop>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.RECEIPTLINEREFERENCE')">
+      <tt:loop ref=".ROOT.RECEIPTLINEREFERENCE">
+        <cac:ReceiptLineReference tt:ref="$REF">
+          <tt:call transformation="ZETR_UBL21_LINEREFERENCETYPE">
+            <tt:with-root name="ROOT" ref="$REF"/>
+          </tt:call>
+        </cac:ReceiptLineReference>
+      </tt:loop>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.DELIVERY')">
+      <cac:Delivery tt:ref=".ROOT.DELIVERY">
+        <tt:value ref="DELIVERY"/>
+      </cac:Delivery>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.ALLOWANCECHARGE')">
+      <tt:loop ref=".ROOT.ALLOWANCECHARGE">
+        <cac:AllowanceCharge tt:ref="$REF">
+          <tt:call transformation="ZETR_UBL21_ALLOWANCECHARGETYPE">
+            <tt:with-root name="ROOT" ref="$REF"/>
+          </tt:call>
+        </cac:AllowanceCharge>
+      </tt:loop>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.TAXTOTAL')">
+      <cac:TaxTotal tt:ref=".ROOT.TAXTOTAL">
+        <tt:call transformation="ZETR_UBL21_TAXTOTALTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:TaxTotal>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.WITHHOLDINGTAXTOTAL')">
+      <tt:loop ref=".ROOT.WITHHOLDINGTAXTOTAL">
+        <cac:WithholdingTaxTotal tt:ref="$REF">
+          <tt:call transformation="ZETR_UBL21_TAXTOTALTYPE">
+            <tt:with-root name="ROOT" ref="$REF"/>
+          </tt:call>
+        </cac:WithholdingTaxTotal>
+      </tt:loop>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.ITEM')">
+      <cac:Item tt:ref=".ROOT.ITEM">
+        <tt:call transformation="ZETR_UBL21_ITEMTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:Item>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.PRICE')">
+      <cac:Price tt:ref=".ROOT.PRICE">
+        <tt:call transformation="ZETR_UBL21_PRICETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:Price>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.SUBINVOICELINE')">
+      <cac:SubInvoiceLine tt:ref=".ROOT.SUBINVOICELINE">
+        <tt:value ref="SUBINVOICELINE"/>
+      </cac:SubInvoiceLine>
+    </tt:cond>
+
+  </tt:template>
+</tt:transform>

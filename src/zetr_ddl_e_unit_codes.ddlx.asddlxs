@@ -1,0 +1,27 @@
+@Metadata.layer: #CORE
+@Search.searchable: true
+@UI:{
+headerInfo:{
+                typeNamePlural: 'TRA Unit Codes',
+                typeName: 'TRA Unit Code',
+                title:{ type: #STANDARD, label: 'TRA Unit Codes', value: 'Description' }
+           }
+}
+annotate entity zetr_ddl_p_unit_codes with
+{
+  @UI.facet: [ { id:              'Units',
+                 purpose:         #STANDARD,
+                 type:            #IDENTIFICATION_REFERENCE,
+                 label:           'TRA Unit Codes',
+                 position:        10 } ]
+  @UI: { lineItem:       [ { position: 10, importance: #HIGH } ],
+         selectionField: [ { position: 10 } ],
+         identification: [{ position: 10 }] }
+  @Search.defaultSearchElement: true
+  UnitCode;
+  @UI: { lineItem:       [ { position: 20, importance: #HIGH } ],
+         selectionField: [ { position: 20 } ],
+         identification: [{ position: 20 }] }
+  Description;
+
+}

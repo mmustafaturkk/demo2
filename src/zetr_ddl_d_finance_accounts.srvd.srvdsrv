@@ -1,0 +1,4 @@
+@EndUserText.label: 'Finance Accounts'
+define service ZETR_DDL_D_FINANCE_ACCOUNTS {
+  expose zetr_ddl_p_finance_accounts as GLAccounts;
+}

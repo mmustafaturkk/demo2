@@ -1,0 +1,117 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2">
+  <tt:root name="ROOT"/>
+  <tt:template>
+    <tt:namespace name="cbc"/>
+    <tt:namespace name="cac"/>
+
+    <tt:cond s-check="not-initial('.ROOT.JOURNEYID')">
+      <cbc:JourneyID tt:ref=".ROOT.JOURNEYID">
+        <tt:call transformation="ZETR_UBL21_IDENTIFIERTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:JourneyID>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.REGISTRATIONNATIONALITYID')">
+      <cbc:RegistrationNationalityID tt:ref=".ROOT.REGISTRATIONNATIONALITYID">
+        <tt:call transformation="ZETR_UBL21_IDENTIFIERTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:RegistrationNationalityID>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.REGISTRATIONNATIONALITY')">
+      <tt:loop ref=".ROOT.REGISTRATIONNATIONALITY">
+        <cbc:RegistrationNationality tt:ref="$REF">
+          <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+            <tt:with-root name="ROOT" ref="$REF"/>
+          </tt:call>
+        </cbc:RegistrationNationality>
+      </tt:loop>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.DIRECTIONCODE')">
+      <cbc:DirectionCode tt:ref=".ROOT.DIRECTIONCODE">
+        <tt:call transformation="ZETR_UBL21_CODETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:DirectionCode>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.TRANSPORTMEANSTYPECODE')">
+      <cbc:TransportMeansTypeCode tt:ref=".ROOT.TRANSPORTMEANSTYPECODE">
+        <tt:call transformation="ZETR_UBL21_CODETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:TransportMeansTypeCode>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.TRADESERVICECODE')">
+      <cbc:TradeServiceCode tt:ref=".ROOT.TRADESERVICECODE">
+        <tt:call transformation="ZETR_UBL21_CODETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:TradeServiceCode>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.STOWAGE')">
+      <cac:Stowage tt:ref=".ROOT.STOWAGE">
+        <tt:call transformation="ZETR_UBL21_STOWAGETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:Stowage>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.AIRTRANSPORT')">
+      <cac:AirTransport tt:ref=".ROOT.AIRTRANSPORT">
+        <tt:call transformation="ZETR_UBL21_IDENTIFIERTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:AirTransport>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.ROADRTRANSPORT')">
+      <cac:RoadTransport tt:ref=".ROOT.ROADTRANSPORT">
+        <tt:call transformation="ZETR_UBL21_IDENTIFIERTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:RoadTransport>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.RAILTRANSPORT')">
+      <cac:RailTransport tt:ref=".ROOT.RAILTRANSPORT">
+        <tt:call transformation="ZETR_UBL21_RAILTRANSPORTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:RailTransport>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.MARITIMETRANSPORT')">
+      <cac:MaritimeTransport tt:ref=".ROOT.MARITIMETRANSPORT">
+        <tt:call transformation="ZETR_UBL21_MARITIMETRANSPORT">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:MaritimeTransport>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.OWNERPARTY')">
+      <cac:OwnerParty tt:ref=".ROOT.OWNERPARTY">
+        <tt:call transformation="ZETR_UBL21_PARTYTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:OwnerParty>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.MEASUREMENTDIMENSION')">
+      <tt:loop ref=".ROOT.MEASUREMENTDIMENSION">
+        <cac:MeasurementDimension tt:ref="$REF">
+          <tt:call transformation="ZETR_UBL21_DIMENSIONTYPE">
+            <tt:with-root name="ROOT" ref="$REF"/>
+          </tt:call>
+        </cac:MeasurementDimension>
+      </tt:loop>
+    </tt:cond>
+
+  </tt:template>
+</tt:transform>

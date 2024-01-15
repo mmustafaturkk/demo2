@@ -1,0 +1,4 @@
+@EndUserText.label: 'eInvoice Users'
+define service Zetr_ddl_s_invoice_users {
+  expose zetr_ddl_p_invoice_users;
+}

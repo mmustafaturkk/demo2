@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SIA6" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <SIA6>
+    <MAIN_OBJECT>
+     <NAME>ZETR_IAM_UNSAVED_INVOICES_EXT</NAME>
+     <TYPE>SIA6</TYPE>
+     <DESCRIPTION>Unsaved Invoices</DESCRIPTION>
+     <RESPONSIBLE>CB9980000034</RESPONSIBLE>
+     <MASTER_LANGUAGE>EN</MASTER_LANGUAGE>
+     <MASTER_SYSTEM>XI1</MASTER_SYSTEM>
+     <PACKAGE_REF>
+      <PACKAGE_NAME>ZETR</PACKAGE_NAME>
+     </PACKAGE_REF>
+     <ABAP_LANGU_VERSION>5</ABAP_LANGU_VERSION>
+    </MAIN_OBJECT>
+    <APP_ID>ZETR_IAM_UNSAVED_INVOICES_EXT</APP_ID>
+    <APP_TYPE>EXT</APP_TYPE>
+    <ABAP_LANGUAGE_VERSION>5</ABAP_LANGUAGE_VERSION>
+    <UI_APP_ID>ZETR_INV_UNSAVE_UI5R</UI_APP_ID>
+    <SERVICE>
+     <item>
+      <REL_NAME>ZETR_DDL_B_UNSAVED_INV             0001</REL_NAME>
+      <REL_TYPE>IWSV</REL_TYPE>
+      <APP_ID>ZETR_IAM_UNSAVED_INVOICES_EXT</APP_ID>
+      <SRVC_NAME>0F3A9E627067E2D14A1EA172DF10E1</SRVC_NAME>
+      <SRVC_TYPE>HT</SRVC_TYPE>
+      <UIAD_SRC>ZETR_INV_UNSAVE_UI5R</UIAD_SRC>
+      <TYPE_TEXT>OData V2</TYPE_TEXT>
+     </item>
+    </SERVICE>
+    <PUBLISH_STATUS>p</PUBLISH_STATUS>
+   </SIA6>
+  </asx:values>
+ </asx:abap>
+</abapGit>

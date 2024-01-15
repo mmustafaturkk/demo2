@@ -1,0 +1,28 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates">
+  <tt:root name="ROOT"/>
+  <tt:template>
+    <tt:cond s-check="not-initial('.ROOT.SCHEMEID')">
+      <tt:attribute name="schemeID" value-ref=".ROOT.SCHEMEID"/>
+    </tt:cond>
+    <tt:cond s-check="not-initial('.ROOT.SCHEMENAME')">
+      <tt:attribute name="schemeName" value-ref=".ROOT.SCHEMENAME"/>
+    </tt:cond>
+    <tt:cond s-check="not-initial('.ROOT.SCHEMEAGENCYID')">
+      <tt:attribute name="schemeAgencyID" value-ref=".ROOT.SCHEMEAGENCYID"/>
+    </tt:cond>
+    <tt:cond s-check="not-initial('.ROOT.SCHEMEAGENCYNAME')">
+      <tt:attribute name="schemeAgencyName" value-ref=".ROOT.SCHEMEAGENCYNAME"/>
+    </tt:cond>
+    <tt:cond s-check="not-initial('.ROOT.SCHEMEVERSIONID')">
+      <tt:attribute name="schemeVersionID" value-ref=".ROOT.SCHEMEVERSIONID"/>
+    </tt:cond>
+    <tt:cond s-check="not-initial('.ROOT.SCHEMEDATAURI')">
+      <tt:attribute name="schemeDataURI" value-ref=".ROOT.SCHEMEDATAURI"/>
+    </tt:cond>
+    <tt:cond s-check="not-initial('.ROOT.SCHEMEURI')">
+      <tt:attribute name="schemeURI" value-ref=".ROOT.SCHEMEURI"/>
+    </tt:cond>
+    <tt:value ref=".ROOT.CONTENT"/>
+  </tt:template>
+</tt:transform>

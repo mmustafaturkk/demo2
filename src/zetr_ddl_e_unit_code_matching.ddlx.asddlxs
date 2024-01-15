@@ -1,0 +1,29 @@
+@Metadata.layer: #CORE
+@Search.searchable: true
+@UI:{
+headerInfo:{ typeNamePlural: 'Unit Code Matching',
+             typeName: 'Unit Code Matching',
+             title:{ type: #STANDARD, label: 'Unit Code Matching', value: 'UnitOfMeasureText' } } }
+annotate entity zetr_ddl_p_unit_code_matching with
+{
+  @UI.facet: [ { id:              'Users',
+                 purpose:         #STANDARD,
+                 type:            #IDENTIFICATION_REFERENCE,
+                 label:           'Unit Code Matching',
+                 position:        10 } ]
+  @UI: { lineItem:       [ { position: 10, importance: #HIGH }],
+         identification: [{ position: 10 }],
+         selectionField: [ { position: 10 } ] }
+  @Search.defaultSearchElement: true
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_UnitOfMeasure', element: 'UnitOfMeasure' }}]
+  UnitOfMeasure;
+  @UI.hidden: true
+  UnitOfMeasureText;
+  @UI: { lineItem:       [ { position: 20, importance: #HIGH }],
+         identification: [{ position: 20 }],
+         selectionField: [ { position: 20 } ] }
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'zetr_ddl_vh_tra_unit_codes', element: 'UnitCode' }}]
+  UnitCode;
+  @UI.hidden: true
+  UnitCodeText;
+}

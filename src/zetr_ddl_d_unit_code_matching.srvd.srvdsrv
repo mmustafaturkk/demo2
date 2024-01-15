@@ -1,0 +1,4 @@
+@EndUserText.label: 'Unit Code Matching'
+define service ZETR_DDL_D_UNIT_CODE_MATCHING {
+  expose zetr_ddl_p_unit_code_matching as UnitCodeMatching;
+}

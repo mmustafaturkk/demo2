@@ -1,0 +1,191 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2">
+  <tt:root name="ROOT"/>
+  <tt:template>
+    <tt:namespace name="cbc"/>
+    <tt:namespace name="cac"/>
+
+    <tt:cond s-check="not-initial('.ROOT.ID')">
+      <cbc:ID tt:ref=".ROOT.ID">
+        <tt:call transformation="ZETR_UBL21_IDENTIFIERTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:ID>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.HANDLINGCODE')">
+      <cbc:HandlingCode tt:ref=".ROOT.HANDLINGCODE">
+        <tt:call transformation="ZETR_UBL21_CODETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:HandlingCode>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.HANDLINGINSTRUCTIONS')">
+      <cbc:HandlingInstructions tt:ref=".ROOT.HANDLINGINSTRUCTIONS">
+        <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:HandlingInstructions>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.GROSSWEIGHTMEASURE')">
+      <cbc:GrossWeightMeasure tt:ref=".ROOT.GROSSWEIGHTMEASURE">
+        <tt:call transformation="ZETR_UBL21_MEASURETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:GrossWeightMeasure>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.NETWEIGHTMEASURE')">
+      <cbc:NetWeightMeasure tt:ref=".ROOT.NETWEIGHTMEASURE">
+        <tt:call transformation="ZETR_UBL21_MEASURETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:NetWeightMeasure>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.GROSSVOLUMEMEASURE')">
+      <cbc:GrossVolumeMeasure tt:ref=".ROOT.GROSSVOLUMEMEASURE">
+        <tt:call transformation="ZETR_UBL21_MEASURETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:GrossVolumeMeasure>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.NETVOLUMEMEASURE')">
+      <cbc:NetVolumeMeasure tt:ref=".ROOT.NETVOLUMEMEASURE">
+        <tt:call transformation="ZETR_UBL21_MEASURETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:NetVolumeMeasure>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.TOTALGOODSITEMQUANTITY')">
+      <cbc:TotalGoodsItemQuantity tt:ref=".ROOT.TOTALGOODSITEMQUANTITY">
+        <tt:call transformation="ZETR_UBL21_QUANTITYTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:TotalGoodsItemQuantity>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.TOTALTRANSPORTHANDLINGUNITQUAN')">
+      <cbc:TotalTransportHandlingUnitQuantity tt:ref=".ROOT.TOTALTRANSPORTHANDLINGUNITQUAN">
+        <tt:call transformation="ZETR_UBL21_QUANTITYTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:TotalTransportHandlingUnitQuantity>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.INSURANCEVALUEAMOUNT')">
+      <cbc:InsuranceValueAmount tt:ref=".ROOT.INSURANCEVALUEAMOUNT">
+        <tt:call transformation="ZETR_UBL21_AMOUNTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:InsuranceValueAmount>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.DECLAREDCUSTOMSVALUEAMOUNT')">
+      <cbc:DeclaredCustomsValueAmount tt:ref=".ROOT.DECLAREDCUSTOMSVALUEAMOUNT">
+        <tt:call transformation="ZETR_UBL21_AMOUNTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:DeclaredCustomsValueAmount>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.DECLAREDFORCARRIAGEVALUEAMOUNT')">
+      <cbc:DeclaredForCarriageValueAmount tt:ref=".ROOT.DECLAREDFORCARRIAGEVALUEAMOUNT">
+        <tt:call transformation="ZETR_UBL21_AMOUNTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:DeclaredForCarriageValueAmount>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.DECLAREDSTATISTICSVALUEAMOUNT')">
+      <cbc:DeclaredStatisticsValueAmount tt:ref=".ROOT.DECLAREDSTATISTICSVALUEAMOUNT">
+        <tt:call transformation="ZETR_UBL21_AMOUNTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:DeclaredStatisticsValueAmount>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.FREEONBOARDVALUEAMOUNT')">
+      <cbc:FreeOnBoardValueAmount tt:ref=".ROOT.FREEONBOARDVALUEAMOUNT">
+        <tt:call transformation="ZETR_UBL21_AMOUNTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:FreeOnBoardValueAmount>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.SPECIALINSTRUCTIONS')">
+      <tt:loop ref=".ROOT.SPECIALINSTRUCTIONS">
+        <cbc:SpecialInstructions tt:ref="$REF">
+          <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+            <tt:with-root name="ROOT" ref="$REF"/>
+          </tt:call>
+        </cbc:SpecialInstructions>
+      </tt:loop>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.GOODSITEM')">
+      <tt:loop ref=".ROOT.GOODSITEM">
+        <cac:GoodsItem tt:ref="$REF">
+          <tt:call transformation="ZETR_UBL21_GOODSITEMTYPE">
+            <tt:with-root name="ROOT" ref="$REF"/>
+          </tt:call>
+        </cac:GoodsItem>
+      </tt:loop>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.SHIPMENTSTAGE')">
+      <tt:loop ref=".ROOT.SHIPMENTSTAGE">
+        <cac:ShipmentStage tt:ref="$REF">
+          <tt:call transformation="ZETR_UBL21_SHIPMENTSTAGETYPE">
+            <tt:with-root name="ROOT" ref="$REF"/>
+          </tt:call>
+        </cac:ShipmentStage>
+      </tt:loop>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.DELIVERY')">
+      <cac:Delivery tt:ref=".ROOT.DELIVERY">
+        <tt:value ref="DELIVERY"/>
+      </cac:Delivery>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.TRANSPORTHANDLINGUNIT')">
+      <tt:loop ref=".ROOT.TRANSPORTHANDLINGUNIT">
+        <cac:TransportHandlingUnit tt:ref="$REF">
+          <tt:call transformation="ZETR_UBL21_TRANSPORTHANDLINGUN">
+            <tt:with-root name="ROOT" ref="$REF"/>
+          </tt:call>
+        </cac:TransportHandlingUnit>
+      </tt:loop>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.RETURNADDRESS')">
+      <cac:ReturnAddress tt:ref=".ROOT.RETURNADDRESS">
+        <tt:call transformation="ZETR_UBL21_ADDRESSTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:ReturnAddress>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.FIRSTARRIVALPORTLOCATION')">
+      <cac:FirstArrivalPortLocation tt:ref=".ROOT.FIRSTARRIVALPORTLOCATION">
+        <tt:call transformation="ZETR_UBL21_LOCATIONTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:FirstArrivalPortLocation>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.LASTEXITPORTLOCATION')">
+      <cac:LastExitPortLocation tt:ref=".ROOT.LASTEXITPORTLOCATION">
+        <tt:call transformation="ZETR_UBL21_LOCATIONTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:LastExitPortLocation>
+    </tt:cond>
+
+  </tt:template>
+</tt:transform>

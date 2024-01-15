@@ -1,0 +1,65 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2">
+  <tt:root name="ROOT"/>
+  <tt:template>
+    <tt:namespace name="cbc"/>
+    <tt:namespace name="cac"/>
+
+    <tt:cond s-check="not-initial('.ROOT.CHARGEINDICATOR')">
+      <cbc:ChargeIndicator tt:ref=".ROOT.CHARGEINDICATOR">
+        <tt:call transformation="ZETR_UBL21_INDICATORTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:ChargeIndicator>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.ALLOWANCECHARGEREASON')">
+      <cbc:AllowanceChargeReason tt:ref=".ROOT.ALLOWANCECHARGEREASON">
+        <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:AllowanceChargeReason>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.MULTIPLIERFACTORNUMERIC')">
+      <cbc:MultiplierFactorNumeric tt:ref=".ROOT.MULTIPLIERFACTORNUMERIC">
+        <tt:call transformation="ZETR_UBL21_NUMERICTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:MultiplierFactorNumeric>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.SEQUENCENUMERIC')">
+      <cbc:SequenceNumeric tt:ref=".ROOT.SEQUENCENUMERIC">
+        <tt:call transformation="ZETR_UBL21_NUMERICTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:SequenceNumeric>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.AMOUNT')">
+      <cbc:Amount tt:ref=".ROOT.AMOUNT">
+        <tt:call transformation="ZETR_UBL21_AMOUNTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:Amount>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.BASEAMOUNT')">
+      <cbc:BaseAmount tt:ref=".ROOT.BASEAMOUNT">
+        <tt:call transformation="ZETR_UBL21_AMOUNTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:BaseAmount>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.PERUNITAMOUNT')">
+      <cbc:PerUnitAmount tt:ref=".ROOT.PERUNITAMOUNT">
+        <tt:call transformation="ZETR_UBL21_AMOUNTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:PerUnitAmount>
+    </tt:cond>
+
+  </tt:template>
+</tt:transform>

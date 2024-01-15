@@ -1,0 +1,6 @@
+@Metadata.layer: #CORE 
+annotate entity ZETR_DDL_I_COMPANY_SELECTION with
+{
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_CompanyCodeVH', element: 'CompanyCode' }}]
+  CompanyCode;
+}

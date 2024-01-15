@@ -1,0 +1,13 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates">
+  <tt:root name="ROOT"/>
+  <tt:template>
+    <tt:cond s-check="not-initial('.ROOT.CURRENCYID')">
+      <tt:attribute name="currencyID" value-ref=".ROOT.CURRENCYID"/>
+    </tt:cond>
+    <tt:cond s-check="not-initial('.ROOT.CURRENCYCODELISTVERSIONID')">
+      <tt:attribute name="currencyCodeListVersionID" value-ref=".ROOT.CURRENCYCODELISTVERSIONID"/>
+    </tt:cond>
+    <tt:value ref=".ROOT.CONTENT"/>
+  </tt:template>
+</tt:transform>

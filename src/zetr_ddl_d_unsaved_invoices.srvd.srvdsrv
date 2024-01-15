@@ -1,0 +1,4 @@
+@EndUserText.label: 'Unsaved Invoices'
+define service ZETR_DDL_D_UNSAVED_INVOICES {
+  expose zetr_ddl_i_unsaved_invoices as UnsavedInvoices;
+}

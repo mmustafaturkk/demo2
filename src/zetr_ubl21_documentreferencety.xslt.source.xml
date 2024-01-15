@@ -1,0 +1,73 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2">
+  <tt:root name="ROOT"/>
+  <tt:template>
+    <tt:namespace name="cbc"/>
+    <tt:namespace name="cac"/>
+
+    <tt:cond s-check="not-initial('.ROOT.ID')">
+      <cbc:ID tt:ref=".ROOT.ID">
+        <tt:call transformation="ZETR_UBL21_IDENTIFIERTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:ID>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.ISSUEDATE')">
+      <cbc:IssueDate tt:ref=".ROOT.ISSUEDATE">
+        <tt:call transformation="ZETR_UBL21_DATETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:IssueDate>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.DOCUMENTTYPECODE')">
+      <cbc:DocumentTypeCode tt:ref=".ROOT.DOCUMENTTYPECODE">
+        <tt:call transformation="ZETR_UBL21_CODETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:DocumentTypeCode>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.DOCUMENTTYPE')">
+      <cbc:DocumentType tt:ref=".ROOT.DOCUMENTTYPE">
+        <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:DocumentType>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.DOCUMENTDESCRIPTION')">
+      <tt:loop ref=".ROOT.DOCUMENTDESCRIPTION">
+        <cbc:DocumentDescription tt:ref="$REF">
+          <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+            <tt:with-root name="ROOT" ref="$REF"/>
+          </tt:call>
+        </cbc:DocumentDescription>
+      </tt:loop>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.ATTACHMENT')">
+      <cac:Attachment tt:ref=".ROOT.ATTACHMENT">
+        <tt:call transformation="ZETR_UBL21_ATTACHMENTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:Attachment>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.VALIDITYPERIOD')">
+      <cac:ValidityPeriod tt:ref=".ROOT.VALIDITYPERIOD">
+        <tt:call transformation="ZETR_UBL21_PERIODTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:ValidityPeriod>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.ISSUERPARTY')">
+      <cac:IssuerParty tt:ref=".ROOT.ISSUERPARTY">
+        <tt:value ref="ISSUERPARTY"/>
+      </cac:IssuerParty>
+    </tt:cond>
+
+  </tt:template>
+</tt:transform>

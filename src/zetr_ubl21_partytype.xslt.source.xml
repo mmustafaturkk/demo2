@@ -1,0 +1,113 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2">
+  <tt:root name="ROOT"/>
+  <tt:template>
+    <tt:namespace name="cbc"/>
+    <tt:namespace name="cac"/>
+
+    <tt:cond s-check="not-initial('.ROOT.WEBSITEURI')">
+      <cbc:WebsiteURI tt:ref=".ROOT.WEBSITEURI">
+        <tt:call transformation="ZETR_UBL21_IDENTIFIERTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:WebsiteURI>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.ENDPOINTID')">
+      <cbc:EndpointID tt:ref=".ROOT.ENDPOINTID">
+        <tt:call transformation="ZETR_UBL21_IDENTIFIERTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:EndpointID>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.INDUSTRYCLASSIFICATIONCODE')">
+      <cbc:IndustryClassificationCode tt:ref=".ROOT.INDUSTRYCLASSIFICATIONCODE">
+        <tt:call transformation="ZETR_UBL21_CODETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:IndustryClassificationCode>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.PARTYIDENTIFICATION')">
+      <tt:loop ref=".ROOT.PARTYIDENTIFICATION">
+        <cac:PartyIdentification tt:ref="$REF">
+          <cbc:ID tt:ref="$REF">
+            <tt:call transformation="ZETR_UBL21_IDENTIFIERTYPE">
+              <tt:with-root name="ROOT" ref="$REF"/>
+            </tt:call>
+          </cbc:ID>
+        </cac:PartyIdentification>
+      </tt:loop>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.PARTYNAME')">
+      <cac:PartyName tt:ref=".ROOT.PARTYNAME">
+        <cbc:Name tt:ref=".ROOT.PARTYNAME">
+          <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+            <tt:with-root name="ROOT" ref="$REF"/>
+          </tt:call>
+        </cbc:Name>
+      </cac:PartyName>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.POSTALADDRESS')">
+      <cac:PostalAddress tt:ref=".ROOT.POSTALADDRESS">
+        <tt:call transformation="ZETR_UBL21_ADDRESSTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:PostalAddress>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.PHYSICALLOCATION')">
+      <cac:PhysicalLocation tt:ref=".ROOT.PHYSICALLOCATION">
+        <tt:call transformation="ZETR_UBL21_LOCATIONTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:PhysicalLocation>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.PARTYTAXSCHEME')">
+      <cac:PartyTaxScheme tt:ref=".ROOT.PARTYTAXSCHEME">
+        <tt:call transformation="ZETR_UBL21_PARTYTAXSCHEMETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:PartyTaxScheme>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.PARTYLEGALENTITY')">
+      <tt:loop ref=".ROOT.PARTYLEGALENTITY">
+        <cac:PartyLegalEntity tt:ref="$REF">
+          <tt:call transformation="ZETR_UBL21_PARTYLEGALENTITYTYP">
+            <tt:with-root name="ROOT" ref="$REF"/>
+          </tt:call>
+        </cac:PartyLegalEntity>
+      </tt:loop>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.CONTACT')">
+      <cac:Contact tt:ref=".ROOT.CONTACT">
+        <tt:call transformation="ZETR_UBL21_CONTACTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:Contact>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.PERSON')">
+      <cac:Person tt:ref=".ROOT.PERSON">
+        <tt:call transformation="ZETR_UBL21_PERSONTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:Person>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.AGENTPARTY')">
+      <cac:AgentParty tt:ref=".ROOT.AGENTPARTY">
+        <tt:call transformation="ZETR_UBL21_ZPARTYTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:AgentParty>
+    </tt:cond>
+
+  </tt:template>
+</tt:transform>

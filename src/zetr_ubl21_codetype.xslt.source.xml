@@ -1,0 +1,34 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates">
+  <tt:root name="ROOT"/>
+  <tt:template>
+    <tt:cond s-check="not-initial('.ROOT.LISTID')">
+      <tt:attribute name="listID" value-ref=".ROOT.LISTID"/>
+    </tt:cond>
+    <tt:cond s-check="not-initial('.ROOT.LISTAGENCYID')">
+      <tt:attribute name="listAgencyID" value-ref=".ROOT.LISTAGENCYID"/>
+    </tt:cond>
+    <tt:cond s-check="not-initial('.ROOT.LISTAGENCYNAME')">
+      <tt:attribute name="listAgencyName" value-ref=".ROOT.LISTAGENCYNAME"/>
+    </tt:cond>
+    <tt:cond s-check="not-initial('.ROOT.LISTNAME')">
+      <tt:attribute name="listName" value-ref=".ROOT.LISTNAME"/>
+    </tt:cond>
+    <tt:cond s-check="not-initial('.ROOT.LISTVERSIONID')">
+      <tt:attribute name="listVersionID" value-ref=".ROOT.LISTVERSIONID"/>
+    </tt:cond>
+    <tt:cond s-check="not-initial('.ROOT.NAME')">
+      <tt:attribute name="name" value-ref=".ROOT.NAME"/>
+    </tt:cond>
+    <tt:cond s-check="not-initial('.ROOT.LANGUAGEID')">
+      <tt:attribute name="languageID" value-ref=".ROOT.LANGUAGEID"/>
+    </tt:cond>
+    <tt:cond s-check="not-initial('.ROOT.LISTURI')">
+      <tt:attribute name="listURI" value-ref=".ROOT.LISTURI"/>
+    </tt:cond>
+    <tt:cond s-check="not-initial('.ROOT.LISTSCHEMEURI')">
+      <tt:attribute name="listSchemeURI" value-ref=".ROOT.LISTSCHEMEURI"/>
+    </tt:cond>
+    <tt:value ref=".ROOT.CONTENT"/>
+  </tt:template>
+</tt:transform>

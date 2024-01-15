@@ -1,0 +1,65 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2">
+  <tt:root name="ROOT"/>
+  <tt:template>
+    <tt:namespace name="cbc"/>
+    <tt:namespace name="cac"/>
+
+    <tt:cond s-check="not-initial('.ROOT.TRANSPORTEMERGENCYCARDCODE')">
+      <cbc:TransportEmergencyCardCode tt:ref=".ROOT.TRANSPORTEMERGENCYCARDCODE">
+        <tt:call transformation="ZETR_UBL21_CODETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:TransportEmergencyCardCode>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.PACKINGCRITERIACODE')">
+      <cbc:PackingCriteriaCode tt:ref=".ROOT.PACKINGCRITERIACODE">
+        <tt:call transformation="ZETR_UBL21_CODETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:PackingCriteriaCode>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.HAZARDOUSREGULATIONCODE')">
+      <cbc:HazardousRegulationCode tt:ref=".ROOT.HAZARDOUSREGULATIONCODE">
+        <tt:call transformation="ZETR_UBL21_CODETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:HazardousRegulationCode>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.INHALATIONTOXICITYZONECODE')">
+      <cbc:InhalationToxicityZoneCode tt:ref=".ROOT.INHALATIONTOXICITYZONECODE">
+        <tt:call transformation="ZETR_UBL21_CODETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:InhalationToxicityZoneCode>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.TRANSPORTAUTHORIZATIONCODE')">
+      <cbc:TransportAuthorizationCode tt:ref=".ROOT.TRANSPORTAUTHORIZATIONCODE">
+        <tt:call transformation="ZETR_UBL21_CODETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:TransportAuthorizationCode>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.MAXIMUMTEMPERATURE')">
+      <cac:MaximumTemperature tt:ref=".ROOT.MAXIMUMTEMPERATURE">
+        <tt:call transformation="ZETR_UBL21_TEMPERATURETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:MaximumTemperature>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.MINIMUMTEMPERATURE')">
+      <cac:MinimumTemperature tt:ref=".ROOT.MINIMUMTEMPERATURE">
+        <tt:call transformation="ZETR_UBL21_TEMPERATURETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:MinimumTemperature>
+    </tt:cond>
+
+  </tt:template>
+</tt:transform>

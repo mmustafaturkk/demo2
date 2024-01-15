@@ -1,0 +1,13 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates">
+  <tt:root name="ROOT"/>
+  <tt:template>
+    <tt:cond s-check="not-initial('.ROOT.UNITCODE')">
+      <tt:attribute name="unitCode" value-ref=".ROOT.UNITCODE"/>
+    </tt:cond>
+    <tt:cond s-check="not-initial('.ROOT.UNITCODELISTVERSIONID')">
+      <tt:attribute name="unitCodeListVersionID" value-ref=".ROOT.UNITCODELISTVERSIONID"/>
+    </tt:cond>
+    <tt:value ref=".ROOT.CONTENT"/>
+  </tt:template>
+</tt:transform>

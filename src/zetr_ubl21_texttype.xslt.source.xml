@@ -1,0 +1,13 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates">
+  <tt:root name="ROOT"/>
+  <tt:template>
+    <tt:cond s-check="not-initial('.ROOT.LANGUAGEID')">
+      <tt:attribute name="languageID" value-ref=".ROOT.LANGUAGEID"/>
+    </tt:cond>
+    <tt:cond s-check="not-initial('.ROOT.LANGUAGELOCALEID')">
+      <tt:attribute name="languageLocaleID" value-ref=".ROOT.LANGUAGELOCALEID"/>
+    </tt:cond>
+    <tt:value ref=".ROOT.CONTENT"/>
+  </tt:template>
+</tt:transform>

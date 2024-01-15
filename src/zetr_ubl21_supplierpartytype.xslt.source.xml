@@ -1,0 +1,25 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2">
+  <tt:root name="ROOT"/>
+  <tt:template>
+    <tt:namespace name="cbc"/>
+    <tt:namespace name="cac"/>
+
+    <tt:cond s-check="not-initial('.ROOT.PARTY')">
+      <cac:Party tt:ref=".ROOT.PARTY">
+        <tt:call transformation="ZETR_UBL21_PARTYTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:Party>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.DESPATCHCONTACT')">
+      <cac:DespatchContact tt:ref=".ROOT.DESPATCHCONTACT">
+        <tt:call transformation="ZETR_UBL21_CONTACTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:DespatchContact>
+    </tt:cond>
+
+  </tt:template>
+</tt:transform>

@@ -1,0 +1,203 @@
+@Metadata.layer: #CORE
+@Search.searchable: true
+@UI:{
+      headerInfo:{
+                   typeNamePlural: 'Incoming Invoices',
+                   typeName: 'Incoming Invoice',
+                   title:{ type: #STANDARD, label: 'Incoming Invoices', value: 'InvoiceID' }
+      }
+}
+annotate entity zetr_ddl_p_incoming_invoices with
+{
+  @UI.hidden: true
+  DocumentUUID;
+  @UI: { lineItem:       [ { position: 10, importance: #HIGH },
+                           { type: #FOR_ACTION,
+                             dataAction: 'addNote',
+                             label: 'Add Note' },
+                           { type: #FOR_ACTION,
+                             dataAction: 'changePrintStatus',
+                             label: 'Change Print Status' },
+                           { type: #FOR_ACTION,
+                             dataAction: 'changeProcessStatus',
+                             label: 'Change Process Status' },
+                           { type: #FOR_ACTION,
+                             dataAction: 'archiveInvoices',
+                             label: 'Archive' },
+                           { type: #FOR_ACTION,
+                             dataAction: 'statusUpdate',
+                             label: 'Status Update' },
+                           { type: #FOR_ACTION,
+                             dataAction: 'setAsRejected',
+                             label: 'Set As Rejected' },
+                           { type: #FOR_ACTION,
+                             dataAction: 'sendResponse',
+                             label: 'Send Response' }
+                             ],
+         selectionField: [ { position: 10 } ] }
+  @Consumption.filter : {  multipleSelections: true }
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'zetr_ddl_vh_company_codes', element: 'CompanyCode' }}]
+  CompanyCode;
+  @UI.hidden: true
+  CompanyTitle;
+  @UI.facet: [ { id:              'InvoiceList',
+                 purpose:         #STANDARD,
+                 type:            #COLLECTION,
+                 label:           'Outgoing Invoices',
+                 position:        10 },
+               { id:              'Contents',
+                 purpose:         #STANDARD,
+                 type:            #LINEITEM_REFERENCE,
+                 label:           'Invoice Contents',
+                 position:        20,
+                 targetElement:   '_invoiceContents' },
+               { id:              'Logs',
+                 purpose:         #STANDARD,
+                 type:            #LINEITEM_REFERENCE,
+                 label:           'Invoice Logs',
+                 position:        30,
+                 targetElement:   '_invoiceLogs' },
+               { id:              'Fieldgroup1-ID',
+                 type:            #FIELDGROUP_REFERENCE,
+                 label:           'Main Data',
+                 parentId:        'InvoiceList',
+                 targetQualifier: 'Fieldgroup1',
+                 position:         10 },
+               { id:              'Fieldgroup3-ID',
+                 type:            #FIELDGROUP_REFERENCE,
+                 label:           'Last Note',
+                 parentId:        'InvoiceList',
+                 targetQualifier: 'Fieldgroup3',
+                 position:         30 },
+               { id:              'Fieldgroup4-ID',
+                 type:            #FIELDGROUP_REFERENCE,
+                 label:           'Status',
+                 parentId:        'InvoiceList',
+                 targetQualifier: 'Fieldgroup4',
+                 position:         40 } ]
+  @UI: { lineItem:       [ { type: #WITH_URL, url: 'PDFContentUrl', position: 20, importance: #HIGH } ],
+         selectionField: [ { position: 20 } ] }
+  @Search.defaultSearchElement: true
+  InvoiceID;
+  @UI: { lineItem:       [ { position: 50 } ],
+         identification: [ { position: 50 } ],
+         fieldGroup: [ { qualifier: 'Fieldgroup1',  position: 50 } ],
+         selectionField: [ { position: 50 } ] }
+  TaxID;
+  @UI.hidden: true
+  Aliass;
+  @UI.hidden: true
+  TaxpayerTitle;
+  @UI: { lineItem:       [ { position: 60 } ],
+         identification: [ { position: 60 } ],
+         fieldGroup: [ { qualifier: 'Fieldgroup1',  position: 60 } ],
+         selectionField: [ { position: 60 } ] }
+  DocumentDate;
+  @UI: { lineItem:       [ { position: 70 } ],
+         identification: [ { position: 70 } ],
+         fieldGroup: [ { qualifier: 'Fieldgroup1',  position: 70 } ],
+         selectionField: [ { position: 70 } ] }
+  ReceiveDate;
+  @UI: { lineItem:       [ { position: 80 } ],
+         selectionField: [ { position: 80 } ],
+         identification: [ { position: 80 } ],
+         fieldGroup: [ { qualifier: 'Fieldgroup1',  position: 80 } ] }
+  @Consumption.filter     : {  multipleSelections: true }
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'zetr_ddl_vh_invoice_profile', element: 'ProfileID' }}]
+  ProfileID;
+  @UI: { lineItem:       [ { position: 90 } ],
+         identification: [ { position: 90 } ],
+         fieldGroup: [ { qualifier: 'Fieldgroup1',  position: 90 } ],
+         selectionField: [ { position: 90 } ] }
+  @Consumption.filter     : {  multipleSelections: true }
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'zetr_ddl_vh_invoice_type', element: 'InvoiceType' }}]
+  InvoiceType;
+  @UI: { lineItem:       [ { position: 100 } ],
+         identification: [ { position: 100 } ],
+         fieldGroup: [ { qualifier: 'Fieldgroup1',  position: 100 } ] }
+  Amount;
+  @UI: { lineItem:       [ { position: 110 } ] }
+  TaxAmount;
+  @UI.hidden: true
+  Currency;
+  @UI: { lineItem:       [ { position: 120 } ] }
+  ExchangeRate;
+  @UI: { multiLineText: true,
+         lineItem:       [ { position: 130 } ],
+         identification: [ { position: 130 } ],
+         fieldGroup: [ { qualifier: 'Fieldgroup3',  position: 130 } ] }
+  LastNote;
+  @UI: { lineItem:       [ { position: 140 } ],
+         identification: [ { position: 140 } ],
+         fieldGroup: [ { qualifier: 'Fieldgroup3',  position: 140 } ] }
+  LastNoteCreatedBy;
+  @UI.hidden: true
+  LastNoteCreatedByName;
+  @UI: { lineItem:       [ { position: 150 } ],
+         identification: [ { position: 150 } ],
+         fieldGroup: [ { qualifier: 'Fieldgroup4',  position: 150 } ],
+         selectionField: [ { position: 150 } ] }
+  @Consumption.filter : {  multipleSelections: true }
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'zetr_ddl_vh_outdoc_response', element: 'ResponseCode' }}]
+  ResponseStatus;
+  @UI.hidden: true
+  ResponseStatusText;
+  @UI: { lineItem:       [ { position: 155 } ],
+         identification: [ { position: 155 } ],
+         fieldGroup: [ { qualifier: 'Fieldgroup4',  position: 155 } ],
+         selectionField: [ { position: 155 } ] }
+  @Consumption.filter : {  multipleSelections: true }
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'zetr_ddl_vh_app_response', element: 'ApplicationResponse' }}]
+  ApplicationResponse;
+  @UI: { lineItem:       [ { position: 160 } ],
+         identification: [ { position: 160 } ],
+         fieldGroup: [ { qualifier: 'Fieldgroup4',  position: 160 } ],
+         selectionField: [ { position: 160 } ] }
+  @Consumption.filter     : {  multipleSelections: true }
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'zetr_ddl_vh_aba_boolean', element: 'Value' }}]
+  Printed;
+  @UI: { lineItem:       [ { position: 170 } ],
+         identification: [ { position: 170 } ],
+         fieldGroup: [ { qualifier: 'Fieldgroup4',  position: 170 } ],
+         selectionField: [ { position: 170 } ] }
+  @Consumption.filter     : {  multipleSelections: true, defaultValue: '' }
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'zetr_ddl_vh_aba_boolean', element: 'Value' }}]
+  Processed;
+  @UI: { lineItem:       [ { position: 180 } ] }
+  ReferenceDocumentType;
+  @UI: { lineItem:       [ { position: 190 } ],
+         identification: [ { position: 190 } ],
+         fieldGroup: [ { qualifier: 'Fieldgroup4',  position: 190 } ] }
+  ReferenceDocumentNumber;
+  @UI: { lineItem:       [ { position: 200 } ],
+         identification: [ { position: 200 } ],
+         fieldGroup: [ { qualifier: 'Fieldgroup4',  position: 200 } ] }
+  ReferenceDocumentYear;
+  @UI: { lineItem:       [ { position: 210 } ],
+         identification: [ { position: 210 } ],
+         fieldGroup: [ { qualifier: 'Fieldgroup4',  position: 210 } ],
+         selectionField: [ { position: 210 } ] }
+  @Consumption.filter     : {  multipleSelections: true, defaultValue: '' }
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'zetr_ddl_vh_aba_boolean', element: 'Value' }}]
+  Archived;
+  @UI: { lineItem:       [ { position: 220 } ] }
+  TRAStatusCode;
+  @UI.hidden: true
+  TRAStatusText;
+  @UI: { lineItem:       [ { position: 230 } ] }
+  StatusDetail;
+  @UI: { lineItem:       [ { position: 240 } ],
+         identification: [ { position: 240 } ],
+         fieldGroup: [ { qualifier: 'Fieldgroup1',  position: 30 } ],
+         selectionField: [ { position: 30 } ] }
+  InvoiceUUID;
+  @UI: { lineItem:       [ { position: 250 } ],
+         selectionField: [ { position: 40 } ] }
+  EnvelopeUUID;
+  @UI.hidden: true
+  IntegratorUUID;
+  @UI.hidden: true
+  QueryID;
+  @UI.hidden: true
+  PDFContentUrl;
+}

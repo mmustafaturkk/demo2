@@ -1,0 +1,57 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2">
+  <tt:root name="ROOT"/>
+  <tt:template>
+    <tt:namespace name="cbc"/>
+    <tt:namespace name="cac"/>
+
+    <tt:cond s-check="not-initial('.ROOT.PAYMENTMEANSCODE')">
+      <cbc:PaymentMeansCode tt:ref=".ROOT.PAYMENTMEANSCODE">
+        <tt:call transformation="ZETR_UBL21_CODETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:PaymentMeansCode>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.PAYMENTDUEDATE')">
+      <cbc:PaymentDueDate tt:ref=".ROOT.PAYMENTDUEDATE">
+        <tt:call transformation="ZETR_UBL21_DATETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:PaymentDueDate>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.PAYMENTCHANNELCODE')">
+      <cbc:PaymentChannelCode tt:ref=".ROOT.PAYMENTCHANNELCODE">
+        <tt:call transformation="ZETR_UBL21_CODETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:PaymentChannelCode>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.INSTRUCTIONNOTE')">
+      <cbc:InstructionNote tt:ref=".ROOT.INSTRUCTIONNOTE">
+        <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:InstructionNote>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.PAYERFINANCIALACCOUNT')">
+      <cac:PayerFinancialAccount tt:ref=".ROOT.PAYERFINANCIALACCOUNT">
+        <tt:call transformation="ZETR_UBL21_FINANCIALACCOUNTTYP">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:PayerFinancialAccount>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.PAYEEFINANCIALACCOUNT')">
+      <cac:PayeeFinancialAccount tt:ref=".ROOT.PAYEEFINANCIALACCOUNT">
+        <tt:call transformation="ZETR_UBL21_FINANCIALACCOUNTTYP">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:PayeeFinancialAccount>
+    </tt:cond>
+
+  </tt:template>
+</tt:transform>

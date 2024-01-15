@@ -1,0 +1,38 @@
+@Metadata.layer: #CORE
+@Search.searchable: true
+@UI:{
+headerInfo:{
+                typeNamePlural: 'TRA Tax Types',
+                typeName: 'TRA Tax Type',
+                title:{ type: #STANDARD, label: 'TRA Tax Types', value: 'ShortDescription' }
+           }
+}
+annotate entity ZETR_DDL_P_TAX_TYPES with
+{
+  @UI.facet: [ { id:              'Taxes',
+                 purpose:         #STANDARD,
+                 type:            #IDENTIFICATION_REFERENCE,
+                 label:           'TRA Tax Types',
+                 position:        10 } ]
+  @UI: { lineItem:       [ { position: 10, importance: #HIGH } ],
+         selectionField: [ { position: 10 } ],
+         identification: [{ position: 10 }] }
+  @Search.defaultSearchElement: true
+  TaxType;
+  @UI: { lineItem:       [ { position: 20, importance: #HIGH } ],
+         selectionField: [ { position: 20 } ],
+         identification: [{ position: 20 }] }
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'zetr_ddl_vh_tax_categories', element: 'TaxCategory' }}]
+  TaxCategory;
+  @UI.hidden: true
+  TaxCategoryText;
+  @UI: { lineItem:       [ { position: 30, importance: #HIGH } ],
+         selectionField: [ { position: 30 } ],
+         identification: [{ position: 30 }] }
+  ShortDescription;
+  @UI: { lineItem:       [ { position: 40, importance: #HIGH } ],
+         selectionField: [ { position: 40 } ],
+         identification: [{ position: 40 }] }
+  LongDescription;
+
+}

@@ -1,0 +1,27 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates" xmlns:ddic="http://www.sap.com/abapxml/types/dictionary" xmlns:def="http://www.sap.com/abapxml/types/defined">
+  <tt:root name="EFATURAKAYITLIKULLANICILISTE" type="?"/>
+  <tt:template>
+    <eFaturaKayitliKullaniciListe>
+      <tt:loop ref=".EFATURAKAYITLIKULLANICILISTE.EFATURAKAYITLIKULLANICI">
+        <eFaturaKayitliKullanici>
+          <tip tt:value-ref="TIP"/>
+          <kayitZamani tt:value-ref="KAYITZAMANI"/>
+          <unvan tt:value-ref="UNVAN"/>
+          <vknTckn tt:value-ref="VKNTCKN"/>
+          <tt:cond s-check="not-initial(ref('HESAPTIPI'))">
+            <hesapTipi tt:value-ref="HESAPTIPI"/>
+          </tt:cond>
+          <tt:cond s-check="not-initial(ref('AKTIFETIKET'))">
+            <tt:loop ref="AKTIFETIKET">
+              <aktifEtiket>
+                <etiket tt:value-ref="ETIKET"/>
+                <etiketOlusturulmaZamani tt:value-ref="ETIKETOLUSTURULMAZAMANI"/>
+              </aktifEtiket>
+            </tt:loop>
+          </tt:cond>
+        </eFaturaKayitliKullanici>
+      </tt:loop>
+    </eFaturaKayitliKullaniciListe>
+  </tt:template>
+</tt:transform>

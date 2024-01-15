@@ -1,0 +1,19 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates">
+  <tt:root name="ROOT"/>
+  <tt:template>
+    <tt:cond s-check="not-initial('.ROOT.UNITCODE')">
+      <tt:attribute name="unitCode" value-ref=".ROOT.UNITCODE"/>
+    </tt:cond>
+    <tt:cond s-check="not-initial('.ROOT.UNITCODELISTID')">
+      <tt:attribute name="unitCodeListID" value-ref=".ROOT.UNITCODELISTID"/>
+    </tt:cond>
+    <tt:cond s-check="not-initial('.ROOT.UNITCODELISTAGENCYID')">
+      <tt:attribute name="unitCodeListAgencyID" value-ref=".ROOT.UNITCODELISTAGENCYID"/>
+    </tt:cond>
+    <tt:cond s-check="not-initial('.ROOT.UNITCODELISTAGENCYNAME')">
+      <tt:attribute name="unitCodeListAgencyName" value-ref=".ROOT.UNITCODELISTAGENCYNAME"/>
+    </tt:cond>
+    <tt:value ref=".ROOT.CONTENT"/>
+  </tt:template>
+</tt:transform>

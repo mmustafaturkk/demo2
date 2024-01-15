@@ -1,0 +1,4 @@
+@EndUserText.label: 'TRA Tax Types'
+define service ZETR_DDL_S_TAX_TYPES {
+  expose ZETR_DDL_P_TAX_TYPES;
+}

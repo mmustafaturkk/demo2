@@ -1,0 +1,73 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2">
+  <tt:root name="ROOT"/>
+  <tt:template>
+    <tt:namespace name="cbc"/>
+    <tt:namespace name="cac"/>
+
+    <tt:cond s-check="not-initial('.ROOT.FIRSTNAME')">
+      <cbc:FirstName tt:ref=".ROOT.FIRSTNAME">
+        <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:FirstName>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.FAMILYNAME')">
+      <cbc:FamilyName tt:ref=".ROOT.FAMILYNAME">
+        <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:FamilyName>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.TITLE')">
+      <cbc:Title tt:ref=".ROOT.TITLE">
+        <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:Title>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.MIDDLENAME')">
+      <cbc:MiddleName tt:ref=".ROOT.MIDDLENAME">
+        <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:MiddleName>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.NAMESUFFIX')">
+      <cbc:NameSuffix tt:ref=".ROOT.NAMESUFFIX">
+        <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:NameSuffix>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.NATIONALITYID')">
+      <cbc:NationalityID tt:ref=".ROOT.NATIONALITYID">
+        <tt:call transformation="ZETR_UBL21_IDENTIFIERTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:NationalityID>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.FINANCIALACCOUNT')">
+      <cac:FinancialAccount tt:ref=".ROOT.FINANCIALACCOUNT">
+        <tt:call transformation="ZETR_UBL21_FINANCIALACCOUNTTYP">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:FinancialAccount>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.IDENTITYDOCUMENTREFERENCE')">
+      <cac:IdentityDocumentReference tt:ref=".ROOT.IDENTITYDOCUMENTREFERENCE">
+        <tt:call transformation="ZETR_UBL21_DOCUMENTREFERENCETY">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:IdentityDocumentReference>
+    </tt:cond>
+
+  </tt:template>
+</tt:transform>

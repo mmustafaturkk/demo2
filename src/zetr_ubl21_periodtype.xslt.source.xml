@@ -1,0 +1,56 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2">
+  <tt:root name="ROOT"/>
+  <tt:template>
+    <tt:namespace name="cbc"/>
+
+    <tt:cond s-check="not-initial('.ROOT.STARTDATE')">
+      <cbc:StartDate tt:ref=".ROOT.STARTDATE">
+        <tt:call transformation="ZETR_UBL21_DATETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:StartDate>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.STARTTIME')">
+      <cbc:StartTime tt:ref=".ROOT.STARTTIME">
+        <tt:call transformation="ZETR_UBL21_TIMETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:StartTime>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.ENDDATE')">
+      <cbc:EndDate tt:ref=".ROOT.ENDDATE">
+        <tt:call transformation="ZETR_UBL21_DATETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:EndDate>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.ENDTIME')">
+      <cbc:EndTime tt:ref=".ROOT.ENDTIME">
+        <tt:call transformation="ZETR_UBL21_TIMETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:EndTime>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.DURATIONMEASURE')">
+      <cbc:DurationMeasure tt:ref=".ROOT.DURATIONMEASURE">
+        <tt:call transformation="ZETR_UBL21_MEASURETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:DurationMeasure>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.DESCRIPTION')">
+      <cbc:Description tt:ref=".ROOT.DESCRIPTION">
+        <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:Description>
+    </tt:cond>
+
+  </tt:template>
+</tt:transform>

@@ -1,0 +1,41 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2">
+  <tt:root name="ROOT"/>
+  <tt:template>
+    <tt:namespace name="cbc"/>
+    <tt:namespace name="cac"/>
+
+    <tt:cond s-check="not-initial('.ROOT.NAME')">
+      <cbc:Name tt:ref=".ROOT.NAME">
+        <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:Name>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.TAXEXEMPTIONREASONCODE')">
+      <cbc:TaxExemptionReasonCode tt:ref=".ROOT.TAXEXEMPTIONREASONCODE">
+        <tt:call transformation="ZETR_UBL21_CODETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:TaxExemptionReasonCode>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.TAXEXEMPTIONREASON')">
+      <cbc:TaxExemptionReason tt:ref=".ROOT.TAXEXEMPTIONREASON">
+        <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:TaxExemptionReason>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.TAXSCHEME')">
+      <cac:TaxScheme tt:ref=".ROOT.TAXSCHEME">
+        <tt:call transformation="ZETR_UBL21_TAXSCHEMETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:TaxScheme>
+    </tt:cond>
+
+  </tt:template>
+</tt:transform>

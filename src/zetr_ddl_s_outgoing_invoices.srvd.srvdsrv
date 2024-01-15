@@ -1,0 +1,5 @@
+@EndUserText.label: 'Outgoing Invoices'
+define service ZETR_DDL_S_OUTGOING_INVOICES {
+  expose zetr_ddl_p_outgoing_invoices as OutgoingInvoices;
+  expose zetr_ddl_p_outinv_logs       as Logs;
+}

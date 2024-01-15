@@ -1,0 +1,128 @@
+@Metadata.layer: #CORE
+@Search.searchable: true
+@UI:{
+headerInfo:{ typeNamePlural: 'Other Partners',
+             typeName: 'Other Partner',
+             title:{ type: #STANDARD, label: 'Other Partners', value: 'Title' } } }
+annotate entity zetr_ddl_p_other_partner with
+{
+  @UI.facet: [ { id:              'Users',
+                 purpose:         #STANDARD,
+                 type:            #COLLECTION,
+                 label:           'Other Partners',
+                 position:        10 },
+               { id:              'Fieldgroup1-ID',
+                 type:            #FIELDGROUP_REFERENCE,
+                 label:           'Main Data',
+                 parentId:        'Users',
+                 targetQualifier: 'Fieldgroup1',
+                 position:         10 },
+               { id:              'Fieldgroup2-ID',
+                 type:            #FIELDGROUP_REFERENCE,
+                 label:           'Address Data',
+                 parentId:        'Users',
+                 targetQualifier: 'Fieldgroup2',
+                 position:         20 },
+               { id:              'Fieldgroup3-ID',
+                 type:            #FIELDGROUP_REFERENCE,
+                 label:           'Communication Data',
+                 parentId:        'Users',
+                 targetQualifier: 'Fieldgroup3',
+                 position:         30 } ]
+  @UI: { lineItem:       [ { position: 10, importance: #HIGH }],
+         identification: [{ position: 10 }],
+         selectionField: [ { position: 10 } ],
+         fieldGroup: [ { qualifier: 'Fieldgroup1',  position: 10 } ] }
+  @Search.defaultSearchElement: true
+  TaxID;
+  @UI: { lineItem: [ { position: 11, importance: #HIGH } ],
+         identification: [{ position: 11, importance: #HIGH }],
+         selectionField: [ { position: 11 } ],
+         fieldGroup: [ { qualifier: 'Fieldgroup1',  position: 11 } ] }
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'zetr_ddl_vh_partner_type', element: 'PartnerType' }}]
+//  @UI.textArrangement: #TEXT_ONLY
+  PartnerType;
+  @UI.hidden: true
+  PartnerTypeText;
+  @UI: { lineItem:       [ { position: 20, importance: #HIGH } ],
+           selectionField: [ { position: 20 } ],
+           identification: [{ position: 20 }],
+         fieldGroup: [ { qualifier: 'Fieldgroup1',  position: 20 } ] }
+  Title;
+  @UI: { //lineItem: [ { position: 21 } ],
+         identification: [{ position: 21 }],
+         fieldGroup: [ { qualifier: 'Fieldgroup1',  position: 21 } ] }
+  FirstName;
+  @UI: { //lineItem: [ { position: 22 } ],
+         identification: [{ position: 22 }],
+         fieldGroup: [ { qualifier: 'Fieldgroup1',  position: 22 } ] }
+  LastName;
+  @UI: { //lineItem: [ { position: 30 } ],
+         identification: [{ position: 30 }],
+         fieldGroup: [ { qualifier: 'Fieldgroup1',  position: 30 } ] }
+  TaxOffice;
+  @UI: { //lineItem: [ { position: 40 } ],
+         identification: [{ position: 40 }],
+         fieldGroup: [ { qualifier: 'Fieldgroup2',  position: 40 } ] }
+  District;
+  @UI: { //lineItem: [ { position: 50 } ],
+         identification: [{ position: 50 }],
+         fieldGroup: [ { qualifier: 'Fieldgroup2',  position: 50 } ] }
+  Street;
+  @UI: { //lineItem: [ { position: 60 } ],
+         identification: [{ position: 60 }],
+         fieldGroup: [ { qualifier: 'Fieldgroup2',  position: 60 } ] }
+  BlockName;
+  @UI: { //lineItem: [ { position: 70 } ],
+         identification: [{ position: 70 }],
+         fieldGroup: [ { qualifier: 'Fieldgroup2',  position: 70 } ] }
+  BuildingName;
+  @UI: { //lineItem: [ { position: 80 } ],
+         identification: [{ position: 80 }],
+         fieldGroup: [ { qualifier: 'Fieldgroup2',  position: 80 } ] }
+  BuildingNo;
+  @UI: { //lineItem: [ { position: 90 } ],
+         identification: [{ position: 90 }],
+         fieldGroup: [ { qualifier: 'Fieldgroup2',  position: 90 } ] }
+  RoomNumber;
+  @UI: { //lineItem: [ { position: 100 } ],
+         identification: [{ position: 100 }],
+         fieldGroup: [ { qualifier: 'Fieldgroup2',  position: 100 } ] }
+  PostBox;
+  @UI: { lineItem: [ { position: 110 } ],
+         identification: [{ position: 110 }],
+         fieldGroup: [ { qualifier: 'Fieldgroup2',  position: 110 } ] }
+  Subdivision;
+  @UI: { lineItem: [ { position: 120 } ],
+         identification: [{ position: 120 }],
+         fieldGroup: [ { qualifier: 'Fieldgroup2',  position: 120 } ] }
+  CityName;
+  @UI: { //lineItem: [ { position: 130 } ],
+         identification: [{ position: 130 }],
+         fieldGroup: [ { qualifier: 'Fieldgroup2',  position: 130 } ] }
+  PostCode;
+  @UI: { //lineItem: [ { position: 140 } ],
+         identification: [{ position: 140 }],
+         fieldGroup: [ { qualifier: 'Fieldgroup2',  position: 140 } ] }
+  Region;
+  @UI: { lineItem: [ { position: 150 } ],
+         identification: [{ position: 150 }],
+         fieldGroup: [ { qualifier: 'Fieldgroup2',  position: 150 } ] }
+  Country;
+  @UI: { //lineItem: [ { position: 160 } ],
+         identification: [{ position: 160 }],
+         fieldGroup: [ { qualifier: 'Fieldgroup3',  position: 160 } ] }
+  TelNumber;
+  @UI: { //lineItem: [ { position: 170 } ],
+         identification: [{ position: 170 }],
+         fieldGroup: [ { qualifier: 'Fieldgroup3',  position: 170 } ] }
+  FaxNumber;
+  @UI: { //lineItem: [ { position: 180 } ],
+         identification: [{ position: 180 }],
+         fieldGroup: [ { qualifier: 'Fieldgroup3',  position: 180 } ] }
+  EMail;
+  @UI: { //lineItem: [ { position: 190 } ],
+         identification: [{ position: 190 }],
+         fieldGroup: [ { qualifier: 'Fieldgroup3',  position: 190 } ] }
+  Website;
+}

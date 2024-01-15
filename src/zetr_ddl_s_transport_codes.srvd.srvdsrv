@@ -1,0 +1,4 @@
+@EndUserText.label: 'TRA Transport Codes'
+define service Zetr_ddl_s_transport_codes {
+  expose zetr_ddl_p_transport_codes;
+}

@@ -1,0 +1,73 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2">
+  <tt:root name="ROOT"/>
+  <tt:template>
+    <tt:namespace name="cbc"/>
+    <tt:namespace name="cac"/>
+
+    <tt:cond s-check="not-initial('.ROOT.ID')">
+      <cbc:ID tt:ref=".ROOT.ID">
+        <tt:call transformation="ZETR_UBL21_IDENTIFIERTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:ID>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.ACTUALDESPATCHDATE')">
+      <cbc:ActualDespatchDate tt:ref=".ROOT.ACTUALDESPATCHDATE">
+        <tt:call transformation="ZETR_UBL21_DATETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:ActualDespatchDate>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.ACTUALDESPATCHTIME')">
+      <cbc:ActualDespatchTime tt:ref=".ROOT.ACTUALDESPATCHTIME">
+        <tt:call transformation="ZETR_UBL21_TIMETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:ActualDespatchTime>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.INSTRUCTIONS')">
+      <cbc:Instructions tt:ref=".ROOT.INSTRUCTIONS">
+        <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:Instructions>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.DESPATCHADDRESS')">
+      <cac:DespatchAddress tt:ref=".ROOT.DESPATCHADDRESS">
+        <tt:call transformation="ZETR_UBL21_ADDRESSTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:DespatchAddress>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.DESPATCHPARTY')">
+      <cac:DespatchParty tt:ref=".ROOT.DESPATCHPARTY">
+        <tt:call transformation="ZETR_UBL21_PARTYTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:DespatchParty>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.CONTACT')">
+      <cac:Contact tt:ref=".ROOT.CONTACT">
+        <tt:call transformation="ZETR_UBL21_CONTACTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:Contact>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.ESTIMATEDDESPATCHPERIOD')">
+      <cac:EstimatedDespatchPeriod tt:ref=".ROOT.ESTIMATEDDESPATCHPERIOD">
+        <tt:call transformation="ZETR_UBL21_PERIODTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:EstimatedDespatchPeriod>
+    </tt:cond>
+
+  </tt:template>
+</tt:transform>

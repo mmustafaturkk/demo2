@@ -1,0 +1,141 @@
+@Metadata.layer: #CORE
+@Search.searchable: true
+@UI:{
+headerInfo:{
+                typeNamePlural: 'Company Information',
+                typeName: 'Company Information',
+                title:{ type: #STANDARD, label: 'Company Information', value: 'Title' }
+           }
+}
+annotate entity zetr_ddl_p_company_information with
+{
+  @UI.facet: [ { id:              'Comapny',
+                 purpose:         #STANDARD,
+                 type:            #COLLECTION,
+                 label:           'Company Information',
+                 position:        10 },
+               { id:              'Fieldgroup1-ID',
+                 type:            #FIELDGROUP_REFERENCE,
+                 label:           'Main Data',
+                 parentId:        'Comapny',
+                 targetQualifier: 'Fieldgroup1',
+                 position:         10 },
+               { id:              'Fieldgroup2-ID',
+                 type:            #FIELDGROUP_REFERENCE,
+                 label:           'Address Data',
+                 parentId:        'Comapny',
+                 targetQualifier: 'Fieldgroup2',
+                 position:         20 },
+               { id:              'Fieldgroup3-ID',
+                 type:            #FIELDGROUP_REFERENCE,
+                 label:           'Communication Data',
+                 parentId:        'Comapny',
+                 targetQualifier: 'Fieldgroup3',
+                 position:         30 },
+               { id:              'Identifications',
+                 purpose:         #STANDARD,
+                 type:            #LINEITEM_REFERENCE,
+                 label:           'Identifications',
+                 position:        20,
+                 targetElement:   '_companyIdentification' },
+               { id:              'Parameters',
+                 purpose:         #STANDARD,
+                 type:            #LINEITEM_REFERENCE,
+                 label:           'Custom Parameters',
+                 position:        30,
+                 targetElement:   '_companyParameters' } ]
+  @UI: { lineItem:       [ { position: 10, importance: #HIGH } ],
+         selectionField: [ { position: 10 } ],
+         identification: [{ position: 10 }],
+         fieldGroup: [ { qualifier: 'Fieldgroup1',  position: 10 } ] }
+  @Search.defaultSearchElement: true
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_CompanyCodeVH', element: 'CompanyCode' }}]
+  CompanyCode;
+  @UI: { lineItem:       [ { position: 20, importance: #HIGH } ],
+         selectionField: [ { position: 20 } ],
+         identification: [{ position: 20 }],
+         fieldGroup: [ { qualifier: 'Fieldgroup1',  position: 20 } ] }
+  Title;
+  @UI: { //lineItem: [ { position: 21 } ],
+         identification: [{ position: 21 }],
+         fieldGroup: [ { qualifier: 'Fieldgroup1',  position: 21 } ] }
+  FirstName;
+  @UI: { //lineItem: [ { position: 22 } ],
+         identification: [{ position: 22 }],
+         fieldGroup: [ { qualifier: 'Fieldgroup1',  position: 22 } ] }
+  LastName;
+  @UI: { lineItem:       [ { position: 23, importance: #HIGH } ],
+         selectionField: [ { position: 23 } ],
+         identification: [{ position: 23 }],
+         fieldGroup: [ { qualifier: 'Fieldgroup1',  position: 23 } ] }
+  SearchTerm;
+  @UI: { //lineItem: [ { position: 30 } ],
+         identification: [{ position: 30 }],
+         fieldGroup: [ { qualifier: 'Fieldgroup1',  position: 30 } ] }
+  TaxOffice;
+  @UI: { //lineItem: [ { position: 40 } ],
+         identification: [{ position: 40 }],
+         fieldGroup: [ { qualifier: 'Fieldgroup2',  position: 40 } ] }
+  District;
+  @UI: { //lineItem: [ { position: 50 } ],
+         identification: [{ position: 50 }],
+         fieldGroup: [ { qualifier: 'Fieldgroup2',  position: 50 } ] }
+  Street;
+  @UI: { //lineItem: [ { position: 60 } ],
+         identification: [{ position: 60 }],
+         fieldGroup: [ { qualifier: 'Fieldgroup2',  position: 60 } ] }
+  BlockName;
+  @UI: { //lineItem: [ { position: 70 } ],
+         identification: [{ position: 70 }],
+         fieldGroup: [ { qualifier: 'Fieldgroup2',  position: 70 } ] }
+  BuildingName;
+  @UI: { //lineItem: [ { position: 80 } ],
+         identification: [{ position: 80 }],
+         fieldGroup: [ { qualifier: 'Fieldgroup2',  position: 80 } ] }
+  BuildingNo;
+  @UI: { //lineItem: [ { position: 90 } ],
+         identification: [{ position: 90 }],
+         fieldGroup: [ { qualifier: 'Fieldgroup2',  position: 90 } ] }
+  RoomNumber;
+  @UI: { //lineItem: [ { position: 100 } ],
+         identification: [{ position: 100 }],
+         fieldGroup: [ { qualifier: 'Fieldgroup2',  position: 100 } ] }
+  PostBox;
+  @UI: { lineItem: [ { position: 110 } ],
+         identification: [{ position: 110 }],
+         fieldGroup: [ { qualifier: 'Fieldgroup2',  position: 110 } ] }
+  Subdivision;
+  @UI: { lineItem: [ { position: 120 } ],
+         identification: [{ position: 120 }],
+         fieldGroup: [ { qualifier: 'Fieldgroup2',  position: 120 } ] }
+  CityName;
+  @UI: { //lineItem: [ { position: 130 } ],
+         identification: [{ position: 130 }],
+         fieldGroup: [ { qualifier: 'Fieldgroup2',  position: 130 } ] }
+  PostCode;
+  @UI: { //lineItem: [ { position: 140 } ],
+         identification: [{ position: 140 }],
+         fieldGroup: [ { qualifier: 'Fieldgroup2',  position: 140 } ] }
+  Region;
+  @UI: { lineItem: [ { position: 150 } ],
+         identification: [{ position: 150 }],
+         fieldGroup: [ { qualifier: 'Fieldgroup2',  position: 150 } ] }
+  Country;
+  @UI: { //lineItem: [ { position: 160 } ],
+         identification: [{ position: 160 }],
+         fieldGroup: [ { qualifier: 'Fieldgroup3',  position: 160 } ] }
+  TelNumber;
+  @UI: { //lineItem: [ { position: 170 } ],
+         identification: [{ position: 170 }],
+         fieldGroup: [ { qualifier: 'Fieldgroup3',  position: 170 } ] }
+  FaxNumber;
+  @UI: { //lineItem: [ { position: 180 } ],
+         identification: [{ position: 180 }],
+         fieldGroup: [ { qualifier: 'Fieldgroup3',  position: 180 } ] }
+  EMail;
+  @UI: { //lineItem: [ { position: 190 } ],
+         identification: [{ position: 190 }],
+         fieldGroup: [ { qualifier: 'Fieldgroup3',  position: 190 } ] }
+  Website;
+
+}

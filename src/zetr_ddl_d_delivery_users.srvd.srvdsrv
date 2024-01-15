@@ -1,0 +1,4 @@
+@EndUserText.label: 'eDelivery Users'
+define service ZETR_DDL_D_DELIVERY_USERS {
+  expose zetr_ddl_p_delivery_users;
+}

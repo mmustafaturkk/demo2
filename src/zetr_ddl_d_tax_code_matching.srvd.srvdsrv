@@ -1,0 +1,4 @@
+@EndUserText.label: 'Tax Code Matching'
+define service ZETR_DDL_D_TAX_CODE_MATCHING {
+  expose zetr_ddl_p_tax_code_matching as TaxCodeMatching;
+}

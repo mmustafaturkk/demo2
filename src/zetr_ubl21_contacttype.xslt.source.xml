@@ -1,0 +1,67 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2">
+  <tt:root name="ROOT"/>
+  <tt:template>
+    <tt:namespace name="cbc"/>
+    <tt:namespace name="cac"/>
+
+    <tt:cond s-check="not-initial('.ROOT.ID')">
+      <cbc:ID tt:ref=".ROOT.ID">
+        <tt:call transformation="ZETR_UBL21_IDENTIFIERTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:ID>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.NAME')">
+      <cbc:Name tt:ref=".ROOT.NAME">
+        <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:Name>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.TELEPHONE')">
+      <cbc:Telephone tt:ref=".ROOT.TELEPHONE">
+        <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:Telephone>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.TELEFAX')">
+      <cbc:Telefax tt:ref=".ROOT.TELEFAX">
+        <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:Telefax>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.ELECTRONICMAIL')">
+      <cbc:ElectronicMail tt:ref=".ROOT.ELECTRONICMAIL">
+        <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:ElectronicMail>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.NOTE')">
+      <cbc:Note tt:ref=".ROOT.NOTE">
+        <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:Note>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.OTHERCOMMUNICATION')">
+      <tt:loop ref=".ROOT.OTHERCOMMUNICATION">
+        <cac:OtherCommunication tt:ref="$REF">
+          <tt:call transformation="ZETR_UBL21_COMMUNICATIONTYPE">
+            <tt:with-root name="ROOT" ref="$REF"/>
+          </tt:call>
+        </cac:OtherCommunication>
+      </tt:loop>
+    </tt:cond>
+
+  </tt:template>
+</tt:transform>

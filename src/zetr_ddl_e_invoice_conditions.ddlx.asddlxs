@@ -1,0 +1,37 @@
+@Metadata.layer: #CORE
+@Search.searchable: true
+@UI:{
+headerInfo:{ typeNamePlural: 'Invoice Conditions',
+             typeName: 'Invoice Condition',
+             title:{ type: #STANDARD, label: 'Invoice Conditions', value: 'ConditionTypeText' } } }
+annotate entity zetr_ddl_p_invoice_conditions with
+{
+  @UI.facet: [ { id:              'Users',
+                 purpose:         #STANDARD,
+                 type:            #IDENTIFICATION_REFERENCE,
+                 label:           'Invoice Conditions',
+                 position:        10 } ]
+  @UI: { lineItem:       [ { position: 10, importance: #HIGH }],
+         identification: [{ position: 10 }],
+         selectionField: [ { position: 10 } ] }
+  @Search.defaultSearchElement: true
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'zetr_ddl_vh_condition_types', element: 'ConditionType' }}]
+  ConditionType;
+  @UI.hidden: true
+  ConditionTypeText;
+  @UI: { lineItem:       [ { position: 20 }],
+         identification: [{ position: 20 }],
+         selectionField: [ { position: 20 } ] }
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'zetr_ddl_vh_condition_category', element: 'ConditionCategory' }}]
+  ConditionCategory;
+  @UI.hidden: true
+  ConditionCategoryText;
+  @UI: { lineItem:       [ { position: 30 }],
+         identification: [{ position: 30 }],
+         selectionField: [ { position: 30 } ] }
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'zetr_ddl_vh_tra_tax_codes', element: 'TaxCode' }}]
+  TaxType;
+  @UI.hidden: true
+  TaxTypeText;
+
+}

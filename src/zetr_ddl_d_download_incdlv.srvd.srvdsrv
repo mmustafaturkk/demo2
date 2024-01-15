@@ -1,0 +1,4 @@
+@EndUserText.label: 'Download Incoming Deliveries'
+define service ZETR_DDL_D_DOWNLOAD_INCDLV {
+  expose ZETR_DDL_I_DOWNLOAD_INCDLV as IncomingDeliveries;
+}

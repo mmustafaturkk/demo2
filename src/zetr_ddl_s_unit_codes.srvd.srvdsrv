@@ -1,0 +1,4 @@
+@EndUserText.label: 'TRA Unit Codes'
+define service ZETR_DDL_S_UNIT_CODES {
+  expose zetr_ddl_p_unit_codes;
+}

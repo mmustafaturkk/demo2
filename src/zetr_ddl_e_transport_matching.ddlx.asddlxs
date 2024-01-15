@@ -1,0 +1,30 @@
+@Metadata.layer: #CORE
+@Search.searchable: true
+@UI:{
+headerInfo:{ typeNamePlural: 'Transport Code Matching',
+             typeName: 'Transport Code Matching',
+             title:{ type: #STANDARD, label: 'Transport Code Matching', value: 'ShippingTypeText' } } }
+annotate entity zetr_ddl_p_transport_matching with
+{
+  @UI.facet: [ { id:              'Users',
+                 purpose:         #STANDARD,
+                 type:            #IDENTIFICATION_REFERENCE,
+                 label:           'Transport Code Matching',
+                 position:        10 } ]
+  @UI: { lineItem:       [ { position: 10, importance: #HIGH }],
+         identification: [{ position: 10 }],
+         selectionField: [ { position: 10 } ] }
+  @Search.defaultSearchElement: true
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_ShippingType', element: 'ShippingType' }}]
+  ShippingType;
+  @UI.hidden: true
+  ShippingTypeText;
+  @UI: { lineItem:       [ { position: 20 }],
+         identification: [{ position: 20 }],
+         selectionField: [ { position: 20 } ] }
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'zetr_ddl_vh_tra_trnsp_codes', element: 'TransportCode' }}]
+  TransportType;
+  @UI.hidden: true
+  TransportTypeText;
+
+}

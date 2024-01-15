@@ -1,0 +1,35 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2">
+  <tt:root name="ROOT"/>
+  <tt:template>
+    <tt:namespace name="cbc"/>
+    <tt:namespace name="cac"/>
+
+    <tt:cond s-check="not-initial('.ROOT.LOTNUMBERID')">
+      <cbc:LotNumberID tt:ref=".ROOT.LOTNUMBERID">
+        <tt:call transformation="ZETR_UBL21_IDENTIFIERTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:LotNumberID>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.EXPIRYDATE')">
+      <cbc:ExpiryDate tt:ref=".ROOT.EXPIRYDATE">
+        <tt:call transformation="ZETR_UBL21_DATETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:ExpiryDate>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.ADDITIONALITEMPROPERTY')">
+      <tt:loop ref=".ROOT.ADDITIONALITEMPROPERTY">
+        <cac:AdditionalItemProperty tt:ref="$REF">
+          <tt:call transformation="ZETR_UBL21_ITEMPROPERTYTYPE">
+            <tt:with-root name="ROOT" ref="$REF"/>
+          </tt:call>
+        </cac:AdditionalItemProperty>
+      </tt:loop>
+    </tt:cond>
+
+  </tt:template>
+</tt:transform>

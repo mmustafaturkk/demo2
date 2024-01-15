@@ -1,0 +1,8 @@
+@EndUserText.label: 'eDelivery Parameters'
+define service ZETR_DDL_S_DELIVERY_PARAMETERS {
+  expose zetr_ddl_p_delivery_parameters as DeliveryParameters;
+  expose zetr_ddl_p_delivery_custom     as CustomParameters;
+  expose zetr_ddl_p_delivery_serials    as Serials;
+  expose zetr_ddl_p_delivery_xslttemp   as XSLTTemplates;
+  expose zetr_ddl_p_delivery_rules      as DeliveryRules;
+}

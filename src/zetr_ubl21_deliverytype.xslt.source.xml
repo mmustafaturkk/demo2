@@ -1,0 +1,131 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2">
+  <tt:root name="ROOT"/>
+  <tt:template>
+    <tt:namespace name="cbc"/>
+    <tt:namespace name="cac"/>
+
+    <tt:cond s-check="not-initial('.ROOT.ID')">
+      <cbc:ID tt:ref=".ROOT.ID">
+        <tt:call transformation="ZETR_UBL21_IDENTIFIERTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:ID>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.QUANTITY')">
+      <cbc:Quantity tt:ref=".ROOT.QUANTITY">
+        <tt:call transformation="ZETR_UBL21_QUANTITYTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:Quantity>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.ACTUALDELIVERYDATE')">
+      <cbc:ActualDeliveryDate tt:ref=".ROOT.ACTUALDELIVERYDATE">
+        <tt:call transformation="ZETR_UBL21_DATETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:ActualDeliveryDate>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.ACTUALDELIVERYTIME')">
+      <cbc:ActualDeliveryTime tt:ref=".ROOT.ACTUALDELIVERYTIME">
+        <tt:call transformation="ZETR_UBL21_TIMETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:ActualDeliveryTime>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.LATESTDELIVERYDATE')">
+      <cbc:LatestDeliveryDate tt:ref=".ROOT.LATESTDELIVERYDATE">
+        <tt:call transformation="ZETR_UBL21_DATETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:LatestDeliveryDate>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.LATESTDELIVERYTIME')">
+      <cbc:LatestDeliveryTime tt:ref=".ROOT.LATESTDELIVERYTIME">
+        <tt:call transformation="ZETR_UBL21_TIMETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:LatestDeliveryTime>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.TRACKINGID')">
+      <cbc:TrackingID tt:ref=".ROOT.TRACKINGID">
+        <tt:call transformation="ZETR_UBL21_IDENTIFIERTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:TrackingID>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.DELIVERYADDRESS')">
+      <cac:DeliveryAddress tt:ref=".ROOT.DELIVERYADDRESS">
+        <tt:call transformation="ZETR_UBL21_ADDRESSTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:DeliveryAddress>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.ALTERNATIVEDELIVERYLOCATION')">
+      <cac:AlternativeDeliveryLocation tt:ref=".ROOT.ALTERNATIVEDELIVERYLOCATION">
+        <tt:call transformation="ZETR_UBL21_LOCATIONTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:AlternativeDeliveryLocation>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.ESTIMATEDDELIVERYPERIOD')">
+      <cac:EstimatedDeliveryPeriod tt:ref=".ROOT.ESTIMATEDDELIVERYPERIOD">
+        <tt:call transformation="ZETR_UBL21_PERIODTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:EstimatedDeliveryPeriod>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.CARRIERPARTY')">
+      <cac:CarrierParty tt:ref=".ROOT.CARRIERPARTY">
+        <tt:call transformation="ZETR_UBL21_PARTYTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:CarrierParty>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.DELIVERYPARTY')">
+      <cac:DeliveryParty tt:ref=".ROOT.DELIVERYPARTY">
+        <tt:call transformation="ZETR_UBL21_PARTYTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:DeliveryParty>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.DESPATCH')">
+      <cac:Despatch tt:ref=".ROOT.DESPATCH">
+        <tt:call transformation="ZETR_UBL21_DESPATCHTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:Despatch>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.DELIVERYTERMS')">
+      <tt:loop ref=".ROOT.DELIVERYTERMS">
+        <cac:DeliveryTerms tt:ref="$REF">
+          <tt:call transformation="ZETR_UBL21_DELIVERYTERMSTYPE">
+            <tt:with-root name="ROOT" ref="$REF"/>
+          </tt:call>
+        </cac:DeliveryTerms>
+      </tt:loop>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.SHIPMENT')">
+      <cac:Shipment tt:ref=".ROOT.SHIPMENT">
+        <tt:call transformation="ZETR_UBL21_ZSHIPMENTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:Shipment>
+    </tt:cond>
+
+  </tt:template>
+</tt:transform>

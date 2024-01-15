@@ -1,0 +1,65 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2">
+  <tt:root name="ROOT"/>
+  <tt:template>
+    <tt:namespace name="cbc"/>
+    <tt:namespace name="cac"/>
+
+    <tt:cond s-check="not-initial('.ROOT.LINEEXTENSIONAMOUNT')">
+      <cbc:LineExtensionAmount tt:ref=".ROOT.LINEEXTENSIONAMOUNT">
+        <tt:call transformation="ZETR_UBL21_AMOUNTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:LineExtensionAmount>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.TAXEXCLUSIVEAMOUNT')">
+      <cbc:TaxExclusiveAmount tt:ref=".ROOT.TAXEXCLUSIVEAMOUNT">
+        <tt:call transformation="ZETR_UBL21_AMOUNTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:TaxExclusiveAmount>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.TAXINCLUSIVEAMOUNT')">
+      <cbc:TaxInclusiveAmount tt:ref=".ROOT.TAXINCLUSIVEAMOUNT">
+        <tt:call transformation="ZETR_UBL21_AMOUNTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:TaxInclusiveAmount>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.ALLOWANCETOTALAMOUNT')">
+      <cbc:AllowanceTotalAmount tt:ref=".ROOT.ALLOWANCETOTALAMOUNT">
+        <tt:call transformation="ZETR_UBL21_AMOUNTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:AllowanceTotalAmount>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.CHARGETOTALAMOUNT')">
+      <cbc:ChargeTotalAmount tt:ref=".ROOT.CHARGETOTALAMOUNT">
+        <tt:call transformation="ZETR_UBL21_AMOUNTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:ChargeTotalAmount>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.PAYABLEROUNDINGAMOUNT')">
+      <cbc:PayableRoundingAmount tt:ref=".ROOT.PAYABLEROUNDINGAMOUNT">
+        <tt:call transformation="ZETR_UBL21_AMOUNTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:PayableRoundingAmount>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.PAYABLEAMOUNT')">
+      <cbc:PayableAmount tt:ref=".ROOT.PAYABLEAMOUNT">
+        <tt:call transformation="ZETR_UBL21_AMOUNTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:PayableAmount>
+    </tt:cond>
+
+  </tt:template>
+</tt:transform>

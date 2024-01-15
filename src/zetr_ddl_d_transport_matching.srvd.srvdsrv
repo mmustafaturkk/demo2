@@ -1,0 +1,4 @@
+@EndUserText.label: 'Transport Code Matching'
+define service ZETR_DDL_D_TRANSPORT_MATCHING {
+  expose zetr_ddl_p_transport_matching as TransportCodeMatching;
+}

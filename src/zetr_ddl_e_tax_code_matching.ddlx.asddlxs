@@ -1,0 +1,55 @@
+@Metadata.layer: #CORE
+@Search.searchable: true
+@UI:{
+headerInfo:{ typeNamePlural: 'Tax Code Matching',
+             typeName: 'Tax Code Matching',
+             title:{ type: #STANDARD, label: 'Tax Code Matching', value: 'TaxTypeText' } } }
+annotate entity zetr_ddl_p_tax_code_matching with
+{
+  @UI.facet: [ { id:              'Users',
+                 purpose:         #STANDARD,
+                 type:            #IDENTIFICATION_REFERENCE,
+                 label:           'Tax Code Matching',
+                 position:        10 } ]
+  @UI: { lineItem:       [ { position: 10, importance: #HIGH }],
+         identification: [{ position: 10 }],
+         selectionField: [ { position: 10 } ] }
+  @Search.defaultSearchElement: true
+//  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_TaxCalculationProcedure', element: 'PricingProcedure' }}]
+  TaxProcedure;
+  @UI: { lineItem:       [ { position: 20, importance: #HIGH }],
+         identification: [{ position: 20 }],
+         selectionField: [ { position: 20 } ] }
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_TaxCodeValueHelp', element: 'TaxCode' }}]
+  TaxCode;
+  @UI: { lineItem:       [ { position: 30 }],
+         identification: [{ position: 30 }],
+         selectionField: [ { position: 30 } ] }
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'zetr_ddl_vh_tra_tax_codes', element: 'TaxCode' }}]
+  TaxType;
+  @UI.hidden: true
+  TaxTypeText;
+  @UI: { lineItem:       [ { position: 40 }],
+         identification: [{ position: 40 }] }
+  TaxRate;
+  @UI: { lineItem:       [ { position: 50 }],
+         identification: [{ position: 50 }] }
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'zetr_ddl_vh_tra_tax_exemptions', element: 'TaxExemption' }}]
+  TaxExemption;
+  @UI.hidden: true
+  TaxExemptionText;
+  @UI: { lineItem:       [ { position: 60 }],
+         identification: [{ position: 60 }] }
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'zetr_ddl_vh_invoice_type', element: 'InvoiceType' }}]
+  InvoiceType;
+  @UI: { lineItem:       [ { position: 70 }],
+         identification: [{ position: 70 }] }
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'zetr_ddl_vh_tra_tax_codes', element: 'TaxCode' }}]
+  ParentTaxType;
+  @UI.hidden: true
+  ParentTaxTypeText;
+  @UI: { lineItem:       [ { position: 80 }],
+         identification: [{ position: 80 }] }
+  ParentTaxRate;
+
+}

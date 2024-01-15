@@ -1,0 +1,4 @@
+@EndUserText.label: 'Invoice Conditions'
+define service ZETR_DDL_D_INVOICE_CONDITIONS {
+  expose zetr_ddl_p_invoice_conditions as InvoiceConditions;
+}

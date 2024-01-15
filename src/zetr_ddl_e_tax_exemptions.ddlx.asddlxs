@@ -1,0 +1,34 @@
+@Metadata.layer: #CORE
+@Search.searchable: true
+@UI:{
+headerInfo:{
+                typeNamePlural: 'TRA Exemption Codes',
+                typeName: 'TRA Exemption Code',
+                title:{ type: #STANDARD, label: 'TRA Exemption Codes', value: 'Description' }
+           }
+}
+annotate entity zetr_ddl_p_tax_exemptions with
+{
+  @UI.facet: [ { id:              'Exemptions',
+                 purpose:         #STANDARD,
+                 type:            #IDENTIFICATION_REFERENCE,
+                 label:           'TRA Exemption Codes',
+                 position:        10 } ]
+  @UI: { lineItem:       [ { position: 10, importance: #HIGH } ],
+         selectionField: [ { position: 10 } ],
+         identification: [{ position: 10 }] }
+  @Search.defaultSearchElement: true
+  ExemptionCode;
+  @UI: { lineItem:       [ { position: 20, importance: #HIGH } ],
+         selectionField: [ { position: 20 } ],
+         identification: [{ position: 20 }] }
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'zetr_ddl_vh_tax_exemption_type', element: 'ExemptionType' }}]
+  ExemptionType;
+  @UI.hidden: true
+  ExemptionTypeText;
+  @UI: { lineItem:       [ { position: 30, importance: #HIGH } ],
+         selectionField: [ { position: 30 } ],
+         identification: [{ position: 30 }] }
+  Description;
+
+}

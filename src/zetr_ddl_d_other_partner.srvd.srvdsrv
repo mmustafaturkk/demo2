@@ -1,0 +1,4 @@
+@EndUserText.label: 'Other partner information'
+define service ZETR_DDL_D_OTHER_PARTNER {
+  expose zetr_ddl_p_other_partner;
+}

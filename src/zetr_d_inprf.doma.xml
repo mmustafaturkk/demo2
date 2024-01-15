@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DOMA" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD01V>
+    <DOMNAME>ZETR_D_INPRF</DOMNAME>
+    <DDLANGUAGE>E</DDLANGUAGE>
+    <DATATYPE>CHAR</DATATYPE>
+    <LENG>000010</LENG>
+    <OUTPUTLEN>000010</OUTPUTLEN>
+    <VALEXI>X</VALEXI>
+    <DDTEXT>Profile ID</DDTEXT>
+    <DOMMASTER>E</DOMMASTER>
+    <ABAP_LANGUAGE_VERSION>5</ABAP_LANGUAGE_VERSION>
+   </DD01V>
+   <DD07V_TAB>
+    <DD07V>
+     <DOMNAME>ZETR_D_INPRF</DOMNAME>
+     <VALPOS>0001</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>TEMEL</DOMVALUE_L>
+     <DDTEXT>Base Invoice</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZETR_D_INPRF</DOMNAME>
+     <VALPOS>0002</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>TICARI</DOMVALUE_L>
+     <DDTEXT>Commercial Invoice</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZETR_D_INPRF</DOMNAME>
+     <VALPOS>0003</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>YOLCU</DOMVALUE_L>
+     <DDTEXT>Taxfree Invoice</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZETR_D_INPRF</DOMNAME>
+     <VALPOS>0004</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>OZEL</DOMVALUE_L>
+     <DDTEXT>Custom Invoice</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZETR_D_INPRF</DOMNAME>
+     <VALPOS>0005</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>IHRACAT</DOMVALUE_L>
+     <DDTEXT>Export Invoice</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZETR_D_INPRF</DOMNAME>
+     <VALPOS>0006</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>KAMU</DOMVALUE_L>
+     <DDTEXT>Public Invoice</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZETR_D_INPRF</DOMNAME>
+     <VALPOS>0007</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>HKS</DOMVALUE_L>
+     <DDTEXT>State  Registration</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZETR_D_INPRF</DOMNAME>
+     <VALPOS>0008</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>STDKOD</DOMVALUE_L>
+     <DDTEXT>Standard Code Invoice</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZETR_D_INPRF</DOMNAME>
+     <VALPOS>0009</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>EARSIV</DOMVALUE_L>
+     <DDTEXT>eArchive Invoice</DDTEXT>
+    </DD07V>
+   </DD07V_TAB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

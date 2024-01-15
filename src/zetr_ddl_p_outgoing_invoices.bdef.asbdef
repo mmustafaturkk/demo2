@@ -1,0 +1,19 @@
+projection;
+strict ( 2 );
+
+define behavior for zetr_ddl_p_outgoing_invoices alias OutgoingInvoices
+{
+  use update;
+  use delete;
+  use association _invoiceLogs;
+  use action sendInvoices;
+  use action archiveInvoices;
+  use action downloadInvoices;
+  use action statusUpdate;
+  use action setAsRejected;
+}
+
+define behavior for zetr_ddl_p_outinv_logs alias Logs
+{
+  use association _outgoingInvoices;
+}

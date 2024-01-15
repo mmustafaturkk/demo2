@@ -1,0 +1,35 @@
+@Metadata.layer: #CORE
+@Search.searchable: true
+@UI:{
+headerInfo:{
+                typeNamePlural: 'TRA Status Codes',
+                typeName: 'TRA Status Code',
+                title:{ type: #STANDARD, label: 'TRA Status Codes', value: 'Description' }
+           }
+}
+annotate entity zetr_ddl_p_tra_status_codes with
+{
+  @UI.facet: [ { id:              'Status',
+                 purpose:         #STANDARD,
+                 type:            #IDENTIFICATION_REFERENCE,
+                 label:           'TRA Status Codes',
+                 position:        10 } ]
+  @UI: { lineItem:       [ { position: 10, importance: #HIGH } ],
+         selectionField: [ { position: 10 } ],
+         identification: [{ position: 10 }] }
+  @Search.defaultSearchElement: true
+  StatusCode;
+  @UI: { lineItem:       [ { position: 20, importance: #HIGH } ],
+         selectionField: [ { position: 20 } ],
+         identification: [{ position: 20 }] }
+  Description;
+  @UI: { lineItem: [ { position: 30 } ],
+         identification: [{ position: 30 }] }
+  Resendable;
+  @UI: { lineItem: [ { position: 40 } ],
+         identification: [{ position: 40 }] }
+  Reversable;
+  @UI: { lineItem: [ { position: 50 } ],
+         identification: [{ position: 50 }] }
+  Success;
+}

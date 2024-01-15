@@ -1,0 +1,4 @@
+@EndUserText.label: 'Download Incoming Invoices'
+define service Zetr_ddl_d_download_incinv {
+  expose zetr_ddl_i_download_incinv as IncomingInvoices;
+}

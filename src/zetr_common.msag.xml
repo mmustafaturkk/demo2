@@ -1,0 +1,626 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZETR_COMMON</ARBGB>
+    <MASTERLANG>E</MASTERLANG>
+    <STEXT>Regulative eSolutions for Turkey - Common Message Class</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>000</MSGNR>
+     <TEXT>&amp;1 &amp;2 &amp;3 &amp;4</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Company not found in the system.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>Technical error.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>The data has been successfully updated.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>Web-service error (&amp;1 &amp;2 &amp;3 &amp;4).</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>Document cannot be found.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>006</MSGNR>
+     <TEXT>Content downloaded successfully.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>007</MSGNR>
+     <TEXT>Document archived.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>008</MSGNR>
+     <TEXT>Document is waiting response.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>009</MSGNR>
+     <TEXT>Response was given successfully.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>010</MSGNR>
+     <TEXT>Response is necessary for document.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>011</MSGNR>
+     <TEXT>No document found according to criterias.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>012</MSGNR>
+     <TEXT>Printed successfully.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>013</MSGNR>
+     <TEXT>Select at least one row.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>014</MSGNR>
+     <TEXT>Select only one row.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>015</MSGNR>
+     <TEXT>Results for &amp;1 &amp;2 &amp;3 &amp;4.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>016</MSGNR>
+     <TEXT>An error occurred while merging PDF.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>017</MSGNR>
+     <TEXT>Rejection cannot be made for the invoice.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>018</MSGNR>
+     <TEXT>No response has been sent for the document.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>019</MSGNR>
+     <TEXT>The e-document has been sent for the document!Reversal is not possible!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>020</MSGNR>
+     <TEXT>The document has already been sent.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>021</MSGNR>
+     <TEXT>No Scenario specified for the document.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>022</MSGNR>
+     <TEXT>The type is not specified for the document.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>023</MSGNR>
+     <TEXT>Branch information not found.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>024</MSGNR>
+     <TEXT>No metadata found.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>025</MSGNR>
+     <TEXT>Other party information not found.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>026</MSGNR>
+     <TEXT>Missing data ( &amp; ).</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>027</MSGNR>
+     <TEXT>No unit of measure match found.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>028</MSGNR>
+     <TEXT>No tax type match found.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>029</MSGNR>
+     <TEXT>The document series has not been determined.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>030</MSGNR>
+     <TEXT>Document series not found (&amp;).</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>031</MSGNR>
+     <TEXT>The next series for &amp; could not be found.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>032</MSGNR>
+     <TEXT>The document has not yet been sent.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>033</MSGNR>
+     <TEXT>The document was sent successfully.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>034</MSGNR>
+     <TEXT>The document has been deleted.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>035</MSGNR>
+     <TEXT>Incorrect e-mail address.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>036</MSGNR>
+     <TEXT>The reversed document cannot be sent.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>037</MSGNR>
+     <TEXT>The document has already been processed.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>038</MSGNR>
+     <TEXT>The document has not yet been approved.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>039</MSGNR>
+     <TEXT>The tax exemption reason must be entered.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>040</MSGNR>
+     <TEXT>The &quot;&amp;&quot; function is not provided by the integrator.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>041</MSGNR>
+     <TEXT>The document has already been reversed.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>042</MSGNR>
+     <TEXT>The document has already been archived.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>043</MSGNR>
+     <TEXT>The document has not been processed yet.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>044</MSGNR>
+     <TEXT>Taxpayer is the e-Invoice payer. You cannot send an e-Archive.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>045</MSGNR>
+     <TEXT>No contact was found in the system for the document.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>046</MSGNR>
+     <TEXT>Incorrect transaction type! Use MIRO or FB60.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>047</MSGNR>
+     <TEXT>The document was rejected.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>048</MSGNR>
+     <TEXT>Document created &amp; &amp; &amp; &amp;.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>049</MSGNR>
+     <TEXT>Document balance is incorrect! Check the document amount.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>050</MSGNR>
+     <TEXT>The taxpayer list is not up to date. Run the update program.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>051</MSGNR>
+     <TEXT>Document series produced! The document cannot be deleted.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>052</MSGNR>
+     <TEXT>The payer mail was not found in the system</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>053</MSGNR>
+     <TEXT>Email sent uccessfully</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>054</MSGNR>
+     <TEXT>The taxpayer is not an e-Invoice taxpayer! Invoice cannot be sent.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>055</MSGNR>
+     <TEXT>The document is being processed by &amp; user.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>056</MSGNR>
+     <TEXT>Unanswered documents cannot be marked as rejected.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>057</MSGNR>
+     <TEXT>VAT information was not found in the document.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>058</MSGNR>
+     <TEXT>You do not have authorization for the selected operation.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>059</MSGNR>
+     <TEXT>Only BASIC invoices can be canceled via GIB.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>060</MSGNR>
+     <TEXT>e-Archive invoices cannot be resent.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>061</MSGNR>
+     <TEXT>e-Archive invoices cannot be responded to.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>062</MSGNR>
+     <TEXT>You do not have permission for the submit button.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>063</MSGNR>
+     <TEXT>You do not have permission for the information button.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>064</MSGNR>
+     <TEXT>You are not authorized for the Status Update button.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>065</MSGNR>
+     <TEXT>You do not have the authority to mark it as rejected.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>066</MSGNR>
+     <TEXT>You do not have archiving authority.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>067</MSGNR>
+     <TEXT>You do not have the right to delete.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>068</MSGNR>
+     <TEXT>You are not authorized to resubmit.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>069</MSGNR>
+     <TEXT>You are not authorized for the download button.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>070</MSGNR>
+     <TEXT>You are not authorized to view.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>071</MSGNR>
+     <TEXT>You do not have permission for the General Note button.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>072</MSGNR>
+     <TEXT>Document UUID not found.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>073</MSGNR>
+     <TEXT>The document is saved as a draft.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>074</MSGNR>
+     <TEXT>Quantities are inconsistent. (Quantity = Received + Missing - Over)</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>075</MSGNR>
+     <TEXT>Withholding code must be entered.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>076</MSGNR>
+     <TEXT>UBL Cannot Contain Negative Value ( &amp; ).</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>077</MSGNR>
+     <TEXT>UBL cannot contain negative values ​​( Item:&amp;, &amp; ).</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>078</MSGNR>
+     <TEXT>The transaction has been cancelled.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>079</MSGNR>
+     <TEXT>Enter one of the Vehicle &amp; Driver and Transportation Company information.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>080</MSGNR>
+     <TEXT>Enter driver information.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>081</MSGNR>
+     <TEXT>Enter address information.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>082</MSGNR>
+     <TEXT>Saved &amp;1.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>083</MSGNR>
+     <TEXT>Enter the required fields.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>084</MSGNR>
+     <TEXT>Recipient address information could not be found.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>085</MSGNR>
+     <TEXT>You are not authorized for the shipping information button.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>086</MSGNR>
+     <TEXT>You do not have permission for the Add Note button.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>087</MSGNR>
+     <TEXT>You do not have authorization for the Processing Status button.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>088</MSGNR>
+     <TEXT>You do not have permission for the document control button.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>089</MSGNR>
+     <TEXT>You do not have permissions for the print button.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>090</MSGNR>
+     <TEXT>You do not have permission for the download answer button.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>091</MSGNR>
+     <TEXT>When the Transport Company TIN or TR ID number is entered, the title cann</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>092</MSGNR>
+     <TEXT>The interval between the invoice date and the shipping date must be at mo</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>093</MSGNR>
+     <TEXT>Incorrect document type.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>094</MSGNR>
+     <TEXT>Fill the item information.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>095</MSGNR>
+     <TEXT>Enter the delivery area information.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>096</MSGNR>
+     <TEXT>Enter the document date.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>097</MSGNR>
+     <TEXT>There is missing data in the items.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>098</MSGNR>
+     <TEXT>Enter IBAN for public invoices.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>200</MSGNR>
+     <TEXT>Data(&amp;1) already exists.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>201</MSGNR>
+     <TEXT>Content can not be downloaded for &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZETR_COMMON</ARBGB>
+     <MSGNR>202</MSGNR>
+     <TEXT>Provide response details.</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>

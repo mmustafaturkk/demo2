@@ -1,0 +1,92 @@
+@Metadata.layer: #CORE
+@Search.searchable: true
+@UI:{
+headerInfo:{
+                typeNamePlural: 'eDelivery Parameters',
+                typeName: 'eDelivery Parameter',
+                title:{ type: #STANDARD, label: 'eDelivery Parameters', value: 'CompanyTitle' }
+           }
+}
+annotate entity zetr_ddl_p_delivery_parameters with
+{
+  @UI.facet: [ { id:              'Parameters',
+                 purpose:         #STANDARD,
+                 type:            #IDENTIFICATION_REFERENCE,
+                 label:           'eDelivery Parameters',
+                 position:        10 },
+               { id:              'Custom',
+                 purpose:         #STANDARD,
+                 type:            #LINEITEM_REFERENCE,
+                 label:           'Custom Parameters',
+                 position:        20,
+                 targetElement:   '_customParameters' },
+               { id:              'Serials',
+                 purpose:         #STANDARD,
+                 type:            #LINEITEM_REFERENCE,
+                 label:           'Serials',
+                 position:        30,
+                 targetElement:   '_deliverySerials' },
+               { id:              'XSLTTemplates',
+                 purpose:         #STANDARD,
+                 type:            #LINEITEM_REFERENCE,
+                 label:           'XSLT Templates',
+                 position:        40,
+                 targetElement:   '_xsltTemplates' },
+               { id:              'DeliveryRules',
+                 purpose:         #STANDARD,
+                 type:            #LINEITEM_REFERENCE,
+                 label:           'eDelivery Rules',
+                 position:        50,
+                 targetElement:   '_deliveryRules' }
+                  ]
+  @UI: { lineItem:       [ { position: 10, importance: #HIGH } ],
+         selectionField: [ { position: 10 } ],
+         identification: [{ position: 10 }] }
+  @Search.defaultSearchElement: true
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'zetr_ddl_vh_company_codes', element: 'CompanyCode' }}]
+  CompanyCode;
+  @UI.hidden: true
+  CompanyTitle;
+  @UI: { lineItem:       [ { position: 20, importance: #HIGH } ],
+         identification: [{ position: 20 }] }
+  ValidFrom;
+  @UI: { lineItem:       [ { position: 30 } ],
+         identification: [{ position: 30 }] }
+  ValidTo;
+  @UI: { lineItem:       [ { position: 40 } ],
+         identification: [{ position: 40 }] }
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'zetr_ddl_vh_integrator', element: 'Integrator' }}]
+  Integrator;
+  @UI: { //lineItem:       [ { position: 50 } ],
+         identification: [{ position: 50 }] }
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'zetr_ddl_vh_delivery_profile', element: 'ProfileID' }}]
+  ProfileID;
+  @UI: { //lineItem:       [ { position: 60 } ],
+         identification: [{ position: 60 }] }
+  WSEndpoint;
+  @UI: { //lineItem:       [ { position: 70 } ],
+         identification: [{ position: 70 }] }
+  WSEndpointAlt;
+  @UI: { //lineItem:       [ { position: 80 } ],
+         identification: [{ position: 80 }] }
+  WSUser;
+  @UI: { //lineItem:       [ { position: 90 } ],
+         identification: [{ position: 90 }] }
+  WSPassword;
+  @UI: { //lineItem:       [ { position: 100 } ],
+         identification: [{ position: 100 }] }
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'ZETR_DDL_VH_GENERATE_ID', element: 'GenerateID' }}]         
+  GenerateSerial;
+  @UI.hidden: true
+  GenerateSerialText;  
+  @UI: { //lineItem:       [ { position: 120 } ],
+         identification: [{ position: 120 }] }
+  Barcode;
+  @UI: { //lineItem:       [ { position: 130 } ],
+         identification: [{ position: 130 }] }
+  PKAlias;
+  @UI: { //lineItem:       [ { position: 140 } ],
+         identification: [{ position: 140 }] }
+  GBAlias;
+
+}

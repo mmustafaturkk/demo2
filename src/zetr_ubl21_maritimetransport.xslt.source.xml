@@ -1,0 +1,75 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2">
+  <tt:root name="ROOT"/>
+  <tt:template>
+    <tt:namespace name="cbc"/>
+    <tt:namespace name="cac"/>
+
+    <tt:cond s-check="not-initial('.ROOT.VESSELID')">
+      <cbc:VesselID tt:ref=".ROOT.VESSELID">
+        <tt:call transformation="ZETR_UBL21_IDENTIFIERTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:VesselID>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.VESSELNAME')">
+      <cbc:VesselName tt:ref=".ROOT.VESSELNAME">
+        <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:VesselName>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.RADIOCALLSIGNID')">
+      <cbc:RadioCallSignID tt:ref=".ROOT.RADIOCALLSIGNID">
+        <tt:call transformation="ZETR_UBL21_IDENTIFIERTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:RadioCallSignID>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.SHIPSREQUIREMENTS')">
+      <tt:loop ref=".ROOT.SHIPSREQUIREMENTS">
+        <cbc:ShipsRequirements tt:ref="$REF">
+          <tt:call transformation="ZETR_UBL21_TEXTTYPE">
+            <tt:with-root name="ROOT" ref="$REF"/>
+          </tt:call>
+        </cbc:ShipsRequirements>
+      </tt:loop>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.GROSSTONNAGEMEASURE')">
+      <cbc:GrossTonnageMeasure tt:ref=".ROOT.GROSSTONNAGEMEASURE">
+        <tt:call transformation="ZETR_UBL21_MEASURETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:GrossTonnageMeasure>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.NETTONNAGEMEASURE')">
+      <cbc:NetTonnageMeasure tt:ref=".ROOT.NETTONNAGEMEASURE">
+        <tt:call transformation="ZETR_UBL21_MEASURETYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cbc:NetTonnageMeasure>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.REGISTRYCERTIFICATEDOCUMENTREF')">
+      <cac:RegistryCertificateDocumentReference tt:ref=".ROOT.REGISTRYCERTIFICATEDOCUMENTREF">
+        <tt:call transformation="ZETR_UBL21_DOCUMENTREFERENCETY">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:RegistryCertificateDocumentReference>
+    </tt:cond>
+
+    <tt:cond s-check="not-initial('.ROOT.REGISTRYPORTLOCATION')">
+      <cac:RegistryPortLocation tt:ref=".ROOT.REGISTRYPORTLOCATION">
+        <tt:call transformation="ZETR_UBL21_LOCATIONTYPE">
+          <tt:with-root name="ROOT" ref="$REF"/>
+        </tt:call>
+      </cac:RegistryPortLocation>
+    </tt:cond>
+
+  </tt:template>
+</tt:transform>
